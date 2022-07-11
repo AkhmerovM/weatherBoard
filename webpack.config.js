@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
@@ -29,5 +31,18 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts'],
-    }
+    },
+    devServer: {
+        static: {
+            directory: paths.build,
+        },
+        compress: true,
+        port: 8008,
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        }),
+        new CleanWebpackPlugin(),
+    ],
 };

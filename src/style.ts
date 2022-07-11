@@ -8,4 +8,4 @@ const Wrapper = styled.button`
   margin: 0 1em;
   padding: 0.25em 1em;
 `
-export const {Wrapper}
+export {Wrapper}
