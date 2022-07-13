@@ -27,10 +27,28 @@ module.exports = {
                     loader: "babel-loader"
                 }
             },
+            {
+                test: /\.m?(less)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    {
+                        loader: 'style-loader' // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader', // translates CSS into CommonJs
+                        options: {
+                            modules: true,
+                        },
+                    },
+                    {
+                        loader: "less-loader",  // compiles Less to CSS
+                    }
+                ]
+            },
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', ".js"],
+        extensions: ['.tsx', '.ts', ".js", ".less"],
     },
     devServer: {
         static: {
