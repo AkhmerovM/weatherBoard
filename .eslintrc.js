@@ -1,27 +1,27 @@
 module.exports = {
-  env: {
-    browser: true,
-  },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+    env: {
+        browser: true,
+        es6: true
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-  ],
-  rules: {
-    "indent": ["error", 4],
-    "react/jsx-indent": ["error", 4],
-    'react/jsx-filename-extension': ["error", { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-    "import/prefer-default-export": "off",
-  },
-};
+    extends: 'standard',
+    globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly'
+    },
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module'
+    },
+    plugins: [
+        'react'
+    ],
+    rules: {
+        indent: ['error', 4],
+        'react/jsx-indent': ['error', 4],
+        'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+        'import/prefer-default-export': 'off'
+    }
+}

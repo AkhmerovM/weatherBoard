@@ -1,22 +1,22 @@
-const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = process.env.NODE_ENV === 'production';
-const isAnalyze = process.env.ANALYZE === 'true';
+const isDev = process.env.NODE_ENV === 'development'
+const isProd = process.env.NODE_ENV === 'production'
+const isAnalyze = process.env.ANALYZE === 'true'
 
 const paths = {
     public: path.resolve(__dirname, 'www'),
     build: path.resolve(__dirname, 'www/build'),
-    src: path.resolve(__dirname, 'src'),
-};
+    src: path.resolve(__dirname, 'src')
+}
 
 module.exports = {
     entry: './src/index.js',
     output: {
         path: paths.build,
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     module: {
         rules: [
@@ -24,7 +24,7 @@ module.exports = {
                 test: /\.m?(js|ts|tsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                    loader: "babel-loader"
+                    loader: 'babel-loader'
                 }
             },
             {
@@ -37,30 +37,30 @@ module.exports = {
                     {
                         loader: 'css-loader', // translates CSS into CommonJs
                         options: {
-                            modules: true,
-                        },
+                            modules: true
+                        }
                     },
                     {
-                        loader: "less-loader",  // compiles Less to CSS
+                        loader: 'less-loader' // compiles Less to CSS
                     }
                 ]
-            },
+            }
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', ".js", ".less"],
+        extensions: ['.tsx', '.ts', '.js', '.less']
     },
     devServer: {
         static: {
-            directory: paths.build,
+            directory: paths.build
         },
         compress: true,
-        port: 8008,
+        port: 8008
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new CleanWebpackPlugin(),
-    ],
-};
+        new CleanWebpackPlugin()
+    ]
+}
