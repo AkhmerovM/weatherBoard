@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.less';
 import {City} from "../City/City";
 
-export function Board() {
+export function WeatherBoard() {
     return (
         <div className={styles.wrapper}>
             <City name={'Novokuznetsk'} temperature={32}/>

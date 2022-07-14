@@ -1,8 +1,8 @@
 import React from 'react';
-import { Board } from './components/Board/Board';
+import { WeatherBoard } from './components/WeatherBoard/WeatherBoard';
 
 export function App() {
     return (
-        <Board />
+        <WeatherBoard />
     );
 }
