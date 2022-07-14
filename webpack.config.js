@@ -1,16 +1,16 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = process.env.NODE_ENV === 'production'
-const isAnalyze = process.env.ANALYZE === 'true'
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
+const isAnalyze = process.env.ANALYZE === 'true';
 
 const paths = {
     public: path.resolve(__dirname, 'www'),
     build: path.resolve(__dirname, 'www/build'),
     src: path.resolve(__dirname, 'src')
-}
+};
 
 module.exports = {
     entry: './src/index.js',
@@ -23,9 +23,13 @@ module.exports = {
             {
                 test: /\.m?(js|ts|tsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
+                use: [{
                     loader: 'babel-loader'
+                },
+                {
+                    loader: 'ts-loader'
                 }
+                ]
             },
             {
                 test: /\.m?(less)$/,
@@ -63,4 +67,4 @@ module.exports = {
         }),
         new CleanWebpackPlugin()
     ]
-}
+};

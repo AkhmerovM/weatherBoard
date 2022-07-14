@@ -20,8 +20,9 @@ module.exports = {
     ],
     rules: {
         indent: ['error', 4],
+        semi: [1, 'always'],
         'react/jsx-indent': ['error', 4],
         'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/prefer-default-export': 'off'
     }
-}
+};
