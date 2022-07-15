@@ -12,5 +12,5 @@ export const App = () => {
     );
 };
 store.dispatch(citySlice.actions.increment());
-sstore.dispatch(citySlice.actions.decrement());
+store.dispatch(citySlice.actions.decrement());
 console.log(store.getState());
