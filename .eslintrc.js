@@ -3,7 +3,7 @@ module.exports = {
         browser: true,
         es6: true
     },
-    extends: 'standard',
+    extends: ['standard', 'plugin:@typescript-eslint/recommended'],
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly'
@@ -16,7 +16,8 @@ module.exports = {
         sourceType: 'module'
     },
     plugins: [
-        'react'
+        'react',
+        '@typescript-eslint'
     ],
     rules: {
         indent: ['error', 4],
