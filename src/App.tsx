@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { WeatherBoard } from './components/WeatherBoard/WeatherBoard';
 import { store } from './store/store';
-import { citySlice } from './components/City/slice';
 
 export const App = () => {
     return (
@@ -11,6 +10,3 @@ export const App = () => {
         </Provider>
     );
 };
-store.dispatch(citySlice.actions.increment());
-store.dispatch(citySlice.actions.decrement());
-console.log(store.getState());

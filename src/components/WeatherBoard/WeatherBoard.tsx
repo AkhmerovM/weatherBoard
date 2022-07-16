@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './style.less';
-import {City} from "../City/City";
+import { City } from '../City/City';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/store';
 
-export function WeatherBoard() {
+export function WeatherBoard () {
+    const cities = useSelector((state: AppState) => state.cities.data);
     return (
         <div className={styles.wrapper}>
-            <City name={'Novokuznetsk'} temperature={32}/>
-            <City name={'Kazan'} temperature={20}/>
-            <City name={'Moscow'} temperature={25}/>
-            <City name={'Saint-Petersburg'} temperature={22}/>
+            {cities.map((city) => {
+                const { name, main: { temp } } = city;
+                return (<City name={name} temperature={temp} />);
+            })}
         </div>
     );
 }

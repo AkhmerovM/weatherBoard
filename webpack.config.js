@@ -30,6 +30,7 @@ module.exports = {
                     loader: 'ts-loader'
                 }
                 ]
+
             },
             {
                 test: /\.m?(less)$/,

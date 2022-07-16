@@ -1,19 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { cities } from './cities';
+import { TCity } from './types';
 
 type CityState = {
-    value: number
+    data: TCity[]
 }
 export const citySlice = createSlice<CityState, {[key: string]:(state: CityState) => void}, string>({
     name: 'weather',
     initialState: {
-        value: 0
+        data: cities
     },
     reducers: {
-        increment: (state: CityState) => {
-            return { value: state.value + 1 };
-        },
-        decrement: (state: CityState) => {
-            return { value: state.value - 1 };
-        }
     }
 });

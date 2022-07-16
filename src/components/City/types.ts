@@ -1,41 +1,63 @@
-type TCity = {
-    "timezone": number,
-    "id": number,
-    "name": string,
-    "cod": number,
-    "main": {
-        "temp": number,
-        "feels_like": number,
-        "temp_min": number,
-        "temp_max": number,
-        "pressure": number,
-        "humidity": number,
-        "sea_level": number,
-        "grnd_level": number
+export enum ICONS {
+    '04d'= '04d',
+    '10d'= '10d'
+}
+export enum WEATHER_NAME {
+    CLOUDS = 'Clouds',
+    RAIN = 'Rain'
+}
+export enum CITIES {
+    NOVOKUZNETSK = 'Novokuznetsk',
+    MOSCOW = 'Moscow',
+    KAZAN = 'Kazan'
+}
+
+export type TCity = {
+    coord: {
+        lon: number,
+        lat: number
     },
-    "wind": {
-        "speed": number,
-        "deg": number,
-        "gust": number
+    visibility: number,
+    dt: number,
+    sys: {
+        type: number,
+        id: number,
+        country: string,
+        sunrise: number,
+        sunset: number
     },
-    "clouds": {
-        "all": number
+    base: string
+    'timezone': number,
+    'id': number,
+    'name': string,
+    'cod': number,
+    'main': {
+        'temp': number,
+        'feels_like': number,
+        'temp_min': number,
+        'temp_max': number,
+        'pressure': number,
+        'humidity': number,
+        'sea_level': number,
+        'grnd_level': number
     },
-    "weather": [
+    'wind': {
+        'speed': number,
+        'deg': number,
+        'gust': number
+    },
+    'clouds': {
+        'all': number
+    },
+    rain?: {
+        '1h': number
+    },
+    'weather': [
         {
-            "id": number,
-            "main": WEATHER_NAME,
-            "description": string,
-            "icon": ICONS
+            'id': number,
+            'main': WEATHER_NAME,
+            'description': string,
+            'icon': ICONS
         }
     ]
-}
-enum ICONS {
-    "04d"= "04d"
-}
-enum WEATHER_NAME {
-    CLOUDS = "Clouds"
-}
-enum CITIES {
-    NOVOKUZNETSK = "Novokuznetsk"
 }
