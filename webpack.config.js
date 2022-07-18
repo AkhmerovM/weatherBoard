@@ -23,12 +23,13 @@ module.exports = {
             {
                 test: /\.m?(js|ts|tsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                use: [{
-                    loader: 'babel-loader'
-                },
-                {
-                    loader: 'ts-loader'
-                }
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'ts-loader'
+                    }
                 ]
 
             },
@@ -53,7 +54,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.less']
+        extensions: ['.tsx', '.ts', '.js', '.less'],
+        alias: {
+            '@': paths.src
+        }
     },
     devServer: {
         static: {

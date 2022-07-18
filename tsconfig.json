@@ -9,6 +9,10 @@
     "module": "es6",
     "target": "es5",
     "allowJs": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   }
 }

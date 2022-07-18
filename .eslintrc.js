@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     env: {
         browser: true,
@@ -25,5 +27,12 @@ module.exports = {
         'react/jsx-indent': ['error', 4],
         'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/prefer-default-export': 'off'
+    },
+    settings: {
+        'import/resolver': {
+            alias: {
+                map: [['@', path.resolve(__dirname, 'src')]]
+            }
+        }
     }
 };
