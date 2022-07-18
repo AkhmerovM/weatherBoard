@@ -5,21 +5,48 @@ import { TCity } from '@/modules/city/types';
 type TProps = {
     city: TCity,
 }
-export const City: React.FC<TProps> = ({ city }) => {
-    const { name, timezone, main: { temp } } = city;
-    const time = getTimeZoneTime(timezone);
-    return <div className={styles.wrapper}>
-        <div className={styles.top}>
-            <div className={styles.title}>
-                {name}
-            </div>
-            <div className={styles.time}>
-                {time}
-            </div>
-        </div>
+type TState = {
+    time: number,
+}
+export class City extends React.Component<TProps, TState> {
+    timerID: NodeJS.Timer;
 
-        <div className={styles.bottom}>
-            {temp} {' '} C
-        </div>
-    </div>;
-};
+    constructor (props: TProps) {
+        super(props);
+        this.state = {
+            time: new Date().getTime()
+        };
+    }
+
+    componentDidMount () {
+        this.timerID = setInterval(() => {
+            this.setState((state) => {
+                return { time: state.time + 1000 };
+            });
+        }, 1000);
+    }
+
+    componentWillUnmount () {
+        clearTimeout(this.timerID);
+    }
+
+    render () {
+        const { time } = this.state;
+        const { city: { timezone, main: { temp }, name } } = this.props;
+        const temperature = Math.floor(temp);
+        const formattedTime = getTimeZoneTime(time, timezone);
+        return <div className={styles.wrapper}>
+            <div className={styles.top}>
+                <div className={styles.title}>
+                    {name}
+                </div>
+                <div className={styles.time}>
+                    {formattedTime}
+                </div>
+            </div>
+            <div className={styles.bottom}>
+                {temperature} {' '} C
+            </div>
+        </div>;
+    }
+}
