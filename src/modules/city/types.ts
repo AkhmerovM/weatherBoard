@@ -27,37 +27,37 @@ export type TCity = {
         sunset: number
     },
     base: string
-    'timezone': number,
-    'id': number,
-    'name': string,
-    'cod': number,
-    'main': {
-        'temp': number,
-        'feels_like': number,
-        'temp_min': number,
-        'temp_max': number,
-        'pressure': number,
-        'humidity': number,
-        'sea_level': number,
-        'grnd_level': number
+    timezone: number,
+    id: number,
+    name: string,
+    cod: number,
+    main: {
+        temp: number,
+        feels_like: number,
+        temp_min: number,
+        temp_max: number,
+        pressure: number,
+        humidity: number,
+        sea_level: number,
+        grnd_level: number
     },
-    'wind': {
-        'speed': number,
-        'deg': number,
-        'gust': number
+    wind: {
+        speed: number,
+        deg: number,
+        gust: number
     },
-    'clouds': {
-        'all': number
+    clouds: {
+        all: number
     },
     rain?: {
         '1h': number
     },
-    'weather': [
+    weather: [
         {
-            'id': number,
-            'main': WEATHER_NAME,
-            'description': string,
-            'icon': ICONS
+            id: number,
+            main: WEATHER_NAME,
+            description: string,
+            icon: ICONS
         }
     ]
 }
