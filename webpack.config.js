@@ -1,14 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
 const isAnalyze = process.env.ANALYZE === 'true';
 
 const paths = {
-    public: path.resolve(__dirname, 'www'),
-    build: path.resolve(__dirname, 'www/build'),
+    public: path.resolve(__dirname, 'static'),
+    build: path.resolve(__dirname, 'static/build'),
     src: path.resolve(__dirname, 'src')
 };
 
@@ -16,6 +17,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: paths.build,
+        publicPath: '/',
         filename: 'bundle.js'
     },
     module: {
@@ -50,6 +52,13 @@ module.exports = {
                         loader: 'less-loader' // compiles Less to CSS
                     }
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '/www/images/[name].[ext]'
+                }
             }
         ]
     },
@@ -61,7 +70,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: paths.build
+            directory: path.resolve(__dirname, './build/static'),
         },
         compress: true,
         port: 8008
@@ -70,6 +79,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, 'src/images'), to: path.resolve(__dirname, 'static/images') }
+            ]
+        })
     ]
 };

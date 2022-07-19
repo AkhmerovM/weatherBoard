@@ -1,4 +1,4 @@
-import { ICONS, TCity, WEATHER_NAME } from './types';
+import {CITIES, ICONS, TCity, WEATHER_NAME} from './types';
 
 export const cities: TCity[] = [
     {
@@ -44,7 +44,7 @@ export const cities: TCity[] = [
         },
         timezone: 25200,
         id: 1496990,
-        name: 'Novokuznetsk',
+        name: CITIES.novokuznetsk,
         cod: 200
     },
     {
@@ -93,7 +93,7 @@ export const cities: TCity[] = [
         },
         timezone: 10800,
         id: 551487,
-        name: 'Kazan’',
+        name: CITIES.kazan,
         cod: 200
     },
     {
@@ -139,7 +139,7 @@ export const cities: TCity[] = [
         },
         timezone: 10800,
         id: 524901,
-        name: 'Moscow',
+        name: CITIES.moscow,
         cod: 200
     }
 ];

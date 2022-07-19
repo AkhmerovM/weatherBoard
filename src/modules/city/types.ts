@@ -6,10 +6,17 @@ export enum WEATHER_NAME {
     CLOUDS = 'Clouds',
     RAIN = 'Rain'
 }
+export enum CITIES_NAMES {
+    novokuznetsk = 'Novokuznetsk',
+    moscow = 'Moscow',
+    kazan = 'Kazan',
+    'saint-petersburg' = 'Saint-petersburg'
+}
 export enum CITIES {
-    NOVOKUZNETSK = 'Novokuznetsk',
-    MOSCOW = 'Moscow',
-    KAZAN = 'Kazan'
+    novokuznetsk = 'novokuznetsk',
+    moscow = 'moscow',
+    kazan = 'kazan',
+    'saint-petersburg' = 'saint-petersburg'
 }
 
 export type TCity = {
@@ -29,7 +36,7 @@ export type TCity = {
     base: string
     timezone: number,
     id: number,
-    name: string,
+    name: CITIES,
     cod: number,
     main: {
         temp: number,
