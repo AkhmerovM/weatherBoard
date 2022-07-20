@@ -36,17 +36,21 @@ export class City extends React.Component<TProps, TState> {
         const temperature = Math.floor(temp);
         const imgUrl = getCityImgUrl(name);
         const formattedTime = getTimeZoneTime(time, timezone);
-        return <div className={styles.wrapper} style={{ backgroundImage: `url(${imgUrl})` }}>
-            <div className={styles.top}>
-                <div className={styles.title}>
-                    {name}
+        return <div style={{ backgroundImage: `url(${imgUrl})` }}>
+            <div className={styles.wrapper}>
+                <div className={styles.bg}>
+                    <div className={styles.top}>
+                        <div className={styles.title}>
+                            {name}
+                        </div>
+                        <div className={styles.time}>
+                            {formattedTime}
+                        </div>
+                    </div>
+                    <div className={styles.bottom}>
+                        {temperature} {' '} C
+                    </div>
                 </div>
-                <div className={styles.time}>
-                    {formattedTime}
-                </div>
-            </div>
-            <div className={styles.bottom}>
-                {temperature} {' '} C
             </div>
         </div>;
     }

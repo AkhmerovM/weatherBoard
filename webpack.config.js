@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
@@ -70,7 +71,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.resolve(__dirname, './build/static'),
+            directory: path.resolve(__dirname, 'static')
         },
         compress: true,
         port: 8008
@@ -84,6 +85,7 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, 'src/images'), to: path.resolve(__dirname, 'static/images') }
             ]
-        })
+        }),
+        new WriteFilePlugin()
     ]
 };
