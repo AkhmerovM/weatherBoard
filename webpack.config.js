@@ -46,7 +46,9 @@ module.exports = {
                     {
                         loader: 'css-loader', // translates CSS into CommonJs
                         options: {
-                            modules: true
+                            modules: {
+                                localIdentName: '[name]__[local]--[hash:base64:5]'
+                            }
                         }
                     },
                     {
