@@ -9,5 +9,7 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     novokuznetsk: '/images/cities/novokuznetsk.png',
     'saint-petersburg': '/images/cities/saint-petersburg.png',
     moscow: '/images/cities/moscow.png',
+    tumen: '/images/cities/tumen.png',
+    vladikavkaz: '/images/cities/vladikavkaz.png',
     default: '/images/cities/moscow.png'
 };

@@ -40,14 +40,14 @@ export class City extends React.Component<TProps, TState> {
             <div className={styles.container} >
                 <div className={styles.top}>
                     <div className={styles.title}>
-                        {name}
+                        <h2>{name}</h2>
                     </div>
                     <div className={styles.time}>
-                        {formattedTime}
+                        <h3>  {formattedTime}</h3>
                     </div>
                 </div>
                 <div className={styles.bottom}>
-                    {temperature} {' '} C
+                    <h3> {temperature} {' '} C</h3>
                 </div>
             </div>
         </div>;

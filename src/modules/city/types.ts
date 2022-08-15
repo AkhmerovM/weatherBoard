@@ -16,6 +16,8 @@ export enum CITIES {
     novokuznetsk = 'novokuznetsk',
     moscow = 'moscow',
     kazan = 'kazan',
+    vladikavkaz = 'vladikavkaz',
+    tumen = 'tumen',
     'saint-petersburg' = 'saint-petersburg'
 }
 

@@ -1,4 +1,4 @@
-import {CITIES, ICONS, TCity, WEATHER_NAME} from './types';
+import { CITIES, ICONS, TCity, WEATHER_NAME } from './types';
 
 export const cities: TCity[] = [
     {
@@ -45,6 +45,144 @@ export const cities: TCity[] = [
         timezone: 25200,
         id: 1496990,
         name: CITIES.novokuznetsk,
+        cod: 200
+    },
+    {
+        coord: {
+            lon: 87.1099,
+            lat: 53.7557
+        },
+        weather: [
+            {
+                id: 804,
+                main: WEATHER_NAME.RAIN,
+                description: 'overcast clouds',
+                icon: ICONS['04d']
+            }
+        ],
+        base: 'stations',
+        main: {
+            temp: 22,
+            feels_like: 20.44,
+            temp_min: 21.22,
+            temp_max: 21.22,
+            pressure: 1014,
+            humidity: 40,
+            sea_level: 1014,
+            grnd_level: 990
+        },
+        visibility: 10000,
+        wind: {
+            speed: 0.96,
+            deg: 55,
+            gust: 0.87
+        },
+        clouds: {
+            all: 87
+        },
+        dt: 1657863236,
+        sys: {
+            type: 2,
+            id: 69385,
+            country: 'RU',
+            sunrise: 1657835969,
+            sunset: 1657895703
+        },
+        timezone: 18000,
+        id: 1496990,
+        name: CITIES.tumen,
+        cod: 200
+    },
+    {
+        coord: {
+            lon: 87.1099,
+            lat: 53.7557
+        },
+        weather: [
+            {
+                id: 804,
+                main: WEATHER_NAME.CLOUDS,
+                description: 'overcast clouds',
+                icon: ICONS['04d']
+            }
+        ],
+        base: 'stations',
+        main: {
+            temp: 21.22,
+            feels_like: 20.44,
+            temp_min: 21.22,
+            temp_max: 21.22,
+            pressure: 1014,
+            humidity: 40,
+            sea_level: 1014,
+            grnd_level: 990
+        },
+        visibility: 10000,
+        wind: {
+            speed: 0.96,
+            deg: 55,
+            gust: 0.87
+        },
+        clouds: {
+            all: 87
+        },
+        dt: 1657863236,
+        sys: {
+            type: 2,
+            id: 69385,
+            country: 'RU',
+            sunrise: 1657835969,
+            sunset: 1657895703
+        },
+        timezone: 10800,
+        id: 1496990,
+        name: CITIES.vladikavkaz,
+        cod: 200
+    },
+    {
+        coord: {
+            lon: 87.1099,
+            lat: 53.7557
+        },
+        weather: [
+            {
+                id: 804,
+                main: WEATHER_NAME.RAIN,
+                description: 'overcast clouds',
+                icon: ICONS['04d']
+            }
+        ],
+        base: 'stations',
+        main: {
+            temp: 24,
+            feels_like: 20.44,
+            temp_min: 21.22,
+            temp_max: 21.22,
+            pressure: 1014,
+            humidity: 40,
+            sea_level: 1014,
+            grnd_level: 990
+        },
+        visibility: 10000,
+        wind: {
+            speed: 0.96,
+            deg: 55,
+            gust: 0.87
+        },
+        clouds: {
+            all: 87
+        },
+        dt: 1657863236,
+        sys: {
+            type: 2,
+            id: 69385,
+            country: 'RU',
+            sunrise: 1657835969,
+            sunset: 1657895703
+        },
+        timezone: 10800,
+        id: 1496990,
+        name: CITIES['saint-petersburg'],
         cod: 200
     },
     {
