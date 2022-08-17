@@ -1,17 +1,41 @@
+@import "/src/style.less";
+
 .wrapper {
-  min-width: 200px;
-  max-width: calc(33% - 8px);
-  padding-top: 32%;
+  min-width: 250px;
+  max-width: 100%;
+  padding-top: 100%;
   flex-direction: column;
   flex-basis: 288px;
   flex-grow: 1;
   justify-content: space-between;
-  border: 1px solid black;
   display: flex;
   position: relative;
   color: white;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  @media (min-width: @gridSizeS) and (max-width:@gridSizeM)  {
+    padding-top: 50%;
+    max-width: calc(50% - 8px);
+    margin-bottom: 16px;
+    &:not(:nth-of-type(2n)) {
+      margin-right: 16px;
+    }
+  }
+  @media (min-width: @gridSizeM) and (max-width:@gridSizeL) {
+    padding-top: 33%;
+    max-width: calc(33% - 12px);
+    margin-bottom: 16px;
+    &:not(:nth-of-type(3n)) {
+      margin-right: 16px;
+    }
+  }
+  @media (min-width: @gridSizeL) {
+    padding-top: 25%;
+    max-width: calc(25% - 16px);
+    margin-bottom: 16px;
+    &:not(:nth-of-type(4n)) {
+      margin-right: 16px;
+    }
+  }
+
 };
 .container {
   background-color: rgba(0,0,0,.4);
@@ -30,6 +54,7 @@
   justify-content: space-between;
 }
 .title {
+  font-size: 22px;
 }
 .weather {
 }
