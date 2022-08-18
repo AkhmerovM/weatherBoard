@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './style.less';
-import { getCityBgStyle, getTimeZoneTime } from '@/modules/city/utils';
+import { getCityImgUrl, getTimeZoneTime } from '@/modules/city/utils';
 import { TCity } from '@/modules/city/types';
+import { CITY_NAMES } from '@/modules/city/constants';
 type TProps = {
     city: TCity,
 }
@@ -36,11 +37,13 @@ export class City extends React.Component<TProps, TState> {
         const temperature = Math.floor(temp);
         const formattedTime = getTimeZoneTime(time, timezone);
         return <div className={styles.wrapper}>
-            <div style={getCityBgStyle(name)}/>
+            <div className={styles.bg}>
+                <img src={getCityImgUrl(name)} className={styles.img} alt={'cityName'}/>
+            </div>
             <div className={styles.container} >
                 <div className={styles.top}>
                     <div className={styles.title}>
-                        {name}
+                        {CITY_NAMES[name]}
                     </div>
                     <div className={styles.time}>
                         {formattedTime}
