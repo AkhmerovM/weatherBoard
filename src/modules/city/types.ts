@@ -3,14 +3,8 @@ export enum ICONS {
     '10d'= '10d'
 }
 export enum WEATHER_NAME {
-    CLOUDS = 'Clouds',
-    RAIN = 'Rain'
-}
-export enum CITIES_NAMES {
-    novokuznetsk = 'Novokuznetsk',
-    moscow = 'Moscow',
-    kazan = 'Kazan',
-    'saint-petersburg' = 'Saint-petersburg'
+    Clouds = 'Clouds',
+    Rain = 'Rain'
 }
 export enum CITIES {
     novokuznetsk = 'novokuznetsk',
@@ -18,7 +12,8 @@ export enum CITIES {
     kazan = 'kazan',
     vladikavkaz = 'vladikavkaz',
     tumen = 'tumen',
-    'saint-petersburg' = 'saint-petersburg'
+    'saint-petersburg' = 'saint-petersburg',
+    'Tomsk Oblast' = 'Tomsk Oblast'
 }
 
 export type TCity = {
@@ -29,8 +24,8 @@ export type TCity = {
     visibility: number,
     dt: number,
     sys: {
-        type: number,
-        id: number,
+        type?: number,
+        id?: number,
         country: string,
         sunrise: number,
         sunset: number
@@ -38,7 +33,7 @@ export type TCity = {
     base: string
     timezone: number,
     id: number,
-    name: CITIES,
+    name: keyof typeof CITIES,
     cod: number,
     main: {
         temp: number,
@@ -64,9 +59,9 @@ export type TCity = {
     weather: [
         {
             id: number,
-            main: WEATHER_NAME,
+            main: keyof typeof WEATHER_NAME,
             description: string,
-            icon: ICONS
+            icon: keyof typeof ICONS
         }
     ]
 }
