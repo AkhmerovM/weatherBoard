@@ -1,4 +1,4 @@
-import { CITIES, ICONS, TCity } from './types';
+import { CITIES, WEATHER_ICONS, TCity } from './types';
 
 export const cities: TCity[] = [
     {
@@ -11,7 +11,7 @@ export const cities: TCity[] = [
                 id: 804,
                 main: 'Clouds',
                 description: 'overcast clouds',
-                icon: '04d'
+                icon: WEATHER_ICONS['01d']
             }
         ],
         base: 'stations',
@@ -57,7 +57,7 @@ export const cities: TCity[] = [
                 id: 804,
                 main: 'Rain',
                 description: 'overcast clouds',
-                icon: ICONS['04d']
+                icon: WEATHER_ICONS['02d']
             }
         ],
         base: 'stations',
@@ -103,7 +103,7 @@ export const cities: TCity[] = [
                 id: 804,
                 main: 'Clouds',
                 description: 'overcast clouds',
-                icon: ICONS['04d']
+                icon: WEATHER_ICONS['03d']
             }
         ],
         base: 'stations',
@@ -149,7 +149,7 @@ export const cities: TCity[] = [
                 id: 804,
                 main: 'Rain',
                 description: 'overcast clouds',
-                icon: ICONS['04d']
+                icon: WEATHER_ICONS['04d']
             }
         ],
         base: 'stations',
@@ -195,7 +195,7 @@ export const cities: TCity[] = [
                 id: 500,
                 main: 'Rain',
                 description: 'light rain',
-                icon: ICONS['10d']
+                icon: WEATHER_ICONS['09d']
             }
         ],
         base: 'stations',
@@ -244,7 +244,7 @@ export const cities: TCity[] = [
                 id: 804,
                 main: 'Clouds',
                 description: 'overcast clouds',
-                icon: ICONS['04d']
+                icon: WEATHER_ICONS['10d']
             }
         ],
         base: 'stations',
@@ -282,7 +282,55 @@ export const cities: TCity[] = [
     },
     {
         coord: { lon: 82.5, lat: 58.5 },
-        weather: [{ id: 804, main: 'Clouds', description: 'overcast clouds', icon: ICONS['04d'] }],
+        weather: [{ id: 804, main: 'Clouds', description: 'overcast clouds', icon: WEATHER_ICONS['11d'] }],
+        base: 'stations',
+        main: {
+            temp: 12.68,
+            feels_like: 11.75,
+            temp_min: 12.68,
+            temp_max: 12.68,
+            pressure: 1014,
+            humidity: 67,
+            sea_level: 1014,
+            grnd_level: 1007
+        },
+        visibility: 10000,
+        wind: { speed: 2.82, deg: 306, gust: 6.61 },
+        clouds: { all: 100 },
+        dt: 1660826583,
+        sys: { country: 'RU', sunrise: 1660777023, sunset: 1660831869 },
+        timezone: 25200,
+        id: 1489421,
+        name: 'Tomsk Oblast',
+        cod: 200
+    },
+    {
+        coord: { lon: 82.5, lat: 58.5 },
+        weather: [{ id: 804, main: 'Clouds', description: 'overcast clouds', icon: WEATHER_ICONS['13d'] }],
+        base: 'stations',
+        main: {
+            temp: 12.68,
+            feels_like: 11.75,
+            temp_min: 12.68,
+            temp_max: 12.68,
+            pressure: 1014,
+            humidity: 67,
+            sea_level: 1014,
+            grnd_level: 1007
+        },
+        visibility: 10000,
+        wind: { speed: 2.82, deg: 306, gust: 6.61 },
+        clouds: { all: 100 },
+        dt: 1660826583,
+        sys: { country: 'RU', sunrise: 1660777023, sunset: 1660831869 },
+        timezone: 25200,
+        id: 1489421,
+        name: 'Tomsk Oblast',
+        cod: 200
+    },
+    {
+        coord: { lon: 82.5, lat: 58.5 },
+        weather: [{ id: 804, main: 'Clouds', description: 'overcast clouds', icon: WEATHER_ICONS['50d'] }],
         base: 'stations',
         main: {
             temp: 12.68,

@@ -73,7 +73,48 @@
 .title {
   font-size: 22px;
 }
-.weather {
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 .time {
+}
+.temperature {
+}
+
+:global(.weatherIcon) {
+  overflow: hidden;
+  height: 54px;
+  width: 54px;
+  background-image: url('/static/images/weather.png');
+  background-size: cover;
+}
+:global(.weatherIcon01d) {
+  background-position: 0 0;
+}
+:global(.weatherIcon02d) {
+  background-position: -57px 0;
+}
+:global(.weatherIcon03d) {
+  background-position: -114px 0;
+}
+:global(.weatherIcon04d) {
+  background-position: -1482px 0;
+}
+:global(.weatherIcon09d) {
+  background-position: -798px 0;
+}
+:global(.weatherIcon10d) {
+  background-position: -741px 0;
+}
+:global(.weatherIcon11d) {
+  background-position: -1653px 0;
+}
+:global(.weatherIcon13d) {
+  background-position: -456px 0;
+}
+:global(.weatherIcon50d) {
+  background-position: -1710px 0;
 }

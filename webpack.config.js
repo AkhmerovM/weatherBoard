@@ -55,13 +55,6 @@ module.exports = {
                         loader: 'less-loader' // compiles Less to CSS
                     }
                 ]
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: '/www/images/[name].[ext]'
-                }
             }
         ]
     },

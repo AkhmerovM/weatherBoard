@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './style.less';
-import { getCityImgUrl, getTimeZoneTime } from '@/modules/city/utils';
+import { formatTemperatureDegree, getCityImgUrl, getTimeZoneTime } from '@/modules/city/utils';
 import { TCity } from '@/modules/city/types';
 import { CITY_NAMES } from '@/modules/city/constants';
+import {getWeatherIconsStyleClasses} from "@/modules/city/components/City/utils";
 type TProps = {
     city: TCity,
 }
@@ -33,8 +34,9 @@ export class City extends React.Component<TProps, TState> {
 
     render () {
         const { time } = this.state;
-        const { city: { timezone, main: { temp }, name } } = this.props;
-        const temperature = Math.floor(temp);
+        const { city: { timezone, main: { temp }, name, weather } } = this.props;
+        const weatherIcon = weather[0].icon;
+        const temperature = formatTemperatureDegree(Math.floor(temp));
         const formattedTime = getTimeZoneTime(time, timezone);
         return <div className={styles.wrapper}>
             <div className={styles.bg}>
@@ -50,7 +52,8 @@ export class City extends React.Component<TProps, TState> {
                     </div>
                 </div>
                 <div className={styles.bottom}>
-                    {temperature} {' '} C
+                    <div className={getWeatherIconsStyleClasses(weatherIcon)} />
+                    <div className={styles.temperature}>{temperature}</div>
                 </div>
             </div>
         </div>;

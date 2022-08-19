@@ -1,6 +1,13 @@
-export enum ICONS {
+export enum WEATHER_ICONS {
+    '01d'= '01d',
+    '02d'= '02d',
+    '03d'= '03d',
     '04d'= '04d',
-    '10d'= '10d'
+    '09d'= '09d',
+    '10d'= '10d',
+    '11d'= '11d',
+    '13d'= '13d',
+    '50d'= '50d'
 }
 export enum WEATHER_NAME {
     Clouds = 'Clouds',
@@ -61,7 +68,7 @@ export type TCity = {
             id: number,
             main: keyof typeof WEATHER_NAME,
             description: string,
-            icon: keyof typeof ICONS
+            icon: keyof typeof WEATHER_ICONS
         }
     ]
 }
