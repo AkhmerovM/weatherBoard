@@ -26,7 +26,8 @@ module.exports = {
         semi: [1, 'always'],
         'react/jsx-indent': ['error', 4],
         'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
-        'import/prefer-default-export': 'off'
+        'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-var-requires': 'off'
     },
     settings: {
         'import/resolver': {

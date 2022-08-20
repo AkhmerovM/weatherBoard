@@ -69,7 +69,10 @@ module.exports = {
             directory: path.resolve(__dirname, 'static')
         },
         compress: true,
-        port: 8008
+        port: 8008,
+        devMiddleware: {
+            writeToDisk: true
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -78,7 +81,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-                { from: path.resolve(__dirname, 'src/images'), to: path.resolve(__dirname, 'static/images') }
+                { from: path.resolve(__dirname, 'src/images'), to: path.resolve(__dirname, 'static/images'), force: true }
             ]
         }),
         new WriteFilePlugin()
