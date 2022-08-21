@@ -11,7 +11,8 @@ export enum WEATHER_ICONS {
 }
 export enum WEATHER_NAME {
     Clouds = 'Clouds',
-    Rain = 'Rain'
+    Rain = 'Rain',
+    Clear = 'Clear'
 }
 export enum CITIES {
     novokuznetsk = 'novokuznetsk',
@@ -20,7 +21,8 @@ export enum CITIES {
     vladikavkaz = 'vladikavkaz',
     tumen = 'tumen',
     'saint-petersburg' = 'saint-petersburg',
-    'Tomsk Oblast' = 'Tomsk Oblast'
+    'Tomsk Oblast' = 'Tomsk Oblast',
+    'Berlin' = 'Berlin'
 }
 
 export type TCity = {
@@ -49,13 +51,13 @@ export type TCity = {
         temp_max: number,
         pressure: number,
         humidity: number,
-        sea_level: number,
-        grnd_level: number
+        sea_level?: number,
+        grnd_level?: number
     },
     wind: {
         speed: number,
         deg: number,
-        gust: number
+        gust?: number
     },
     clouds: {
         all: number

@@ -12,6 +12,7 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     tumen: '/images/cities/tumen.png',
     vladikavkaz: '/images/cities/vladikavkaz.png',
     'Tomsk Oblast': '/images/cities/tomsk.jpeg',
+    Berlin: '/images/cities/berlin.jpeg',
     default: '/images/cities/moscow.png'
 };
 
@@ -22,5 +23,6 @@ export const CITY_NAMES: {[key in keyof typeof CITIES]: string} = {
     moscow: 'Москва',
     tumen: 'Тюмень',
     vladikavkaz: 'Владикавказ',
-    'Tomsk Oblast': 'Томск'
+    'Tomsk Oblast': 'Томск',
+    Berlin: 'Берлин'
 };
