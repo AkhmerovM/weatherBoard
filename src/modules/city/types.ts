@@ -22,7 +22,9 @@ export enum CITIES {
     tumen = 'tumen',
     'saint-petersburg' = 'saint-petersburg',
     'Tomsk Oblast' = 'Tomsk Oblast',
-    'Berlin' = 'Berlin'
+    'Berlin' = 'Berlin',
+    'Prague' = 'Prague',
+    'Helsinki' = 'Helsinki'
 }
 
 export type TCity = {
