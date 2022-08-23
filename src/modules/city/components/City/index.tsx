@@ -4,6 +4,7 @@ import { formatTemperatureDegree, getCityImgUrl, getTimeZoneTime } from '@/modul
 import { TCity } from '@/modules/city/types';
 import { CITY_NAMES } from '@/modules/city/constants';
 import { getWeatherIconsStyleClasses } from '@/modules/city/components/City/utils';
+import { AnimationWeatherSwitcher } from '@/modules/city/components/AnimationWeatherSwitcher';
 type TProps = {
     city: TCity,
 }
@@ -36,6 +37,7 @@ export class City extends React.Component<TProps, TState> {
         const { time } = this.state;
         const { city: { timezone, main: { temp }, name, weather } } = this.props;
         const weatherIcon = weather[0].icon;
+        const weatherName = weather[0].main;
         const temperature = formatTemperatureDegree(Math.floor(temp));
         const formattedTime = getTimeZoneTime(time, timezone);
         return <div className={styles.wrapper}>
@@ -55,6 +57,7 @@ export class City extends React.Component<TProps, TState> {
                     <div className={getWeatherIconsStyleClasses(weatherIcon)} />
                     <div className={styles.temperature}>{temperature}</div>
                 </div>
+                <AnimationWeatherSwitcher weatherName={weatherName} />
             </div>
         </div>;
     }

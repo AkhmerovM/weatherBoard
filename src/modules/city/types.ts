@@ -12,7 +12,8 @@ export enum WEATHER_ICONS {
 export enum WEATHER_NAME {
     Clouds = 'Clouds',
     Rain = 'Rain',
-    Clear = 'Clear'
+    Clear = 'Clear',
+    Snow = 'Snow',
 }
 export enum CITIES {
     novokuznetsk = 'novokuznetsk',
