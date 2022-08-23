@@ -24,6 +24,11 @@ function loop (canvas1, canvas2, canvas3) {
     let w = canvas1.width = canvas2.width = canvas3.width = window.innerWidth;
     let h = canvas1.height = canvas2.height = canvas3.height = window.innerHeight;
 
+    window.addEventListener('resize', function () {
+        w = canvas1.width = canvas2.width = canvas3.width = window.innerWidth;
+        h = canvas1.height = canvas2.height = canvas3.height = window.innerHeight;
+    });
+
     function random (min, max) {
         return Math.random() * (max - min + 1) + min;
     }
@@ -185,6 +190,7 @@ function loop (canvas1, canvas2, canvas3) {
     function init () {
         createRainTrough();
         createRain();
+        window.addEventListener('resize', createRainTrough);
     }
 
     init();
