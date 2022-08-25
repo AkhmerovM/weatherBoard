@@ -9,17 +9,17 @@ export const options = {
     alphaVariance: 1,
     color: [colors.color1, colors.color2, colors.color3, colors.color4],
     composition: 'source-over',
-    count: 350,
+    count: 250,
     direction: 161,
     float: 0.75,
     glow: 0,
     imageUrl: [
-        'snow-2.svg',
-        'snow-4.svg',
-        'snow-6.svg'
+        'images/snow/snow-2.svg',
+        'images/snow/snow-4.svg',
+        'images/snow/snow-6.svg'
     ],
     maxAlpha: 2,
-    maxSize: 22,
+    maxSize: 12,
     minAlpha: -0.2,
     minSize: 4,
     parallax: 1.75,

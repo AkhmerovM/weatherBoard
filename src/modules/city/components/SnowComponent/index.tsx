@@ -7,6 +7,7 @@ export const SnowComponent = () => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
+        window.mySparticles = new sparticles.Sparticles(ref.current, options);
     }, []);
-    return <div ref={ref} className={`${styles.falling} .falling`} />;
+    return <div ref={ref} className={`${styles.falling} falling`} />;
 };

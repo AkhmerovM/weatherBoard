@@ -45,6 +45,7 @@ export class City extends React.Component<TProps, TState> {
                 <img src={getCityImgUrl(name)} className={styles.img} alt={'cityName'}/>
             </div>
             <div className={styles.container} >
+                <AnimationWeatherSwitcher weatherName={weatherName} />
                 <div className={styles.top}>
                     <div className={styles.title}>
                         {CITY_NAMES[name]}
@@ -57,7 +58,6 @@ export class City extends React.Component<TProps, TState> {
                     <div className={getWeatherIconsStyleClasses(weatherIcon)} />
                     <div className={styles.temperature}>{temperature}</div>
                 </div>
-                <AnimationWeatherSwitcher weatherName={weatherName} />
             </div>
         </div>;
     }

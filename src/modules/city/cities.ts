@@ -9,7 +9,7 @@ export const cities: TCity[] = [
         weather: [
             {
                 id: 804,
-                main: 'Clouds',
+                main: 'Snow',
                 description: 'overcast clouds',
                 icon: '01d'
             }
@@ -242,7 +242,7 @@ export const cities: TCity[] = [
         weather: [
             {
                 id: 804,
-                main: 'Clouds',
+                main: 'Clear',
                 description: 'overcast clouds',
                 icon: '10d'
             }
