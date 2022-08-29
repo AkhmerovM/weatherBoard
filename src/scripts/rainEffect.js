@@ -1,9 +1,7 @@
 function init () {
-    console.log('SCRIPT');
     const canvases1 = window.document.getElementsByClassName('canvas1');
     const canvases2 = window.document.getElementsByClassName('canvas2');
     const canvases3 = window.document.getElementsByClassName('canvas3');
-    console.log(canvases1.length);
     for (let i = 0; i < canvases1.length; i++) {
         loop(canvases1[i], canvases2[i], canvases3[i]);
     }

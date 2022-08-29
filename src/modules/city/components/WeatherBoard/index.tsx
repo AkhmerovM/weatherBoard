@@ -6,13 +6,11 @@ import { useSelectCities } from '@/modules/city/selectors';
 export function WeatherBoard () {
     const cities = useSelectCities();
     useEffect(() => {
-        console.log('USEEFFECT');
         const script = document.createElement('script');
         script.src = 'rainEffect.js';
         script.async = true;
         document.body.appendChild(script);
         return () => {
-            console.log('UNMOUNT');
             document.body.removeChild(script);
         };
     }, []);
