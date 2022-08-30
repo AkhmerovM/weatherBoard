@@ -5,11 +5,11 @@ const colors = {
     color4: 'rgba(135,143,145,1)'
 };
 export const options = {
-    alphaSpeed: 10,
+    alphaSpeed: 15,
     alphaVariance: 1,
     color: [colors.color1, colors.color2, colors.color3, colors.color4],
     composition: 'source-over',
-    count: 250,
+    count: 350,
     direction: 161,
     float: 0.75,
     glow: 0,
@@ -25,7 +25,7 @@ export const options = {
     parallax: 1.75,
     rotation: 0.5,
     shape: 'image',
-    speed: 3,
+    speed: 5,
     style: 'fill',
     twinkle: false,
     xVariance: 5,

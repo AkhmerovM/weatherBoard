@@ -111,7 +111,7 @@ function init () {
             ctx2.moveTo(rain[i].x, rain[i].y);
             ctx2.lineTo(rain[i].x + rain[i].l * rain[i].xs, rain[i].y + rain[i].l * rain[i].ys);
             ctx2.strokeStyle = 'rgba(174,194,224,0.5)';
-            ctx2.lineWidth = 1;
+            ctx2.lineWidth = 3;
             ctx2.lineCap = 'round';
             ctx2.stroke();
         }
