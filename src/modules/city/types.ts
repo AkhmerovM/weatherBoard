@@ -1,3 +1,23 @@
+type SLIDER_IMAGE_VALUES = 1 | 2 | 3;
+
+export enum CITIES {
+    novokuznetsk = 'novokuznetsk',
+    moscow = 'moscow',
+    kazan = 'kazan',
+    vladikavkaz = 'vladikavkaz',
+    tumen = 'tumen',
+    'saint-petersburg' = 'saint-petersburg',
+    'Tomsk Oblast' = 'Tomsk Oblast',
+    'berlin' = 'Berlin',
+    'prague' = 'Prague',
+    'helsinki' = 'Helsinki'
+}
+
+export type CITY_URL_NAMES = `${keyof typeof CITIES}${SLIDER_IMAGE_VALUES}`;
+export type CITY_URL = {
+    [key in CITY_URL_NAMES]: string;
+} & {default: string};
+
 export enum WEATHER_ICONS {
     '01d'= '01d',
     '02d'= '02d',
@@ -14,18 +34,6 @@ export enum WEATHER_NAME {
     Rain = 'Rain',
     Clear = 'Clear',
     Snow = 'Snow',
-}
-export enum CITIES {
-    novokuznetsk = 'novokuznetsk',
-    moscow = 'moscow',
-    kazan = 'kazan',
-    vladikavkaz = 'vladikavkaz',
-    tumen = 'tumen',
-    'saint-petersburg' = 'saint-petersburg',
-    'Tomsk Oblast' = 'Tomsk Oblast',
-    'Berlin' = 'Berlin',
-    'Prague' = 'Prague',
-    'Helsinki' = 'Helsinki'
 }
 
 export type TCity = {
