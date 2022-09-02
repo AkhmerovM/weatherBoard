@@ -74,8 +74,11 @@
   justify-content: space-between;
 }
 .title {
-  font-size: @fontSizeXXL;
+  font-size: @fontSizeL;
   text-shadow: 2px 2px 7px black;
+  @media screen and (max-width: @gridSizeS) {
+    font-size: @fontSizeXXL;
+  }
 }
 .bottom {
   display: flex;
@@ -84,11 +87,17 @@
   align-items: flex-start;
 }
 .time {
-  font-size: @fontSizeXXL;
+  font-size: @fontSizeL;
+  @media screen and (max-width: @gridSizeS) {
+    font-size: @fontSizeXXL;
+  }
 }
 .temperature {
   font-family: 'Play', sans-serif;
-  font-size: @fontSizeXXL;
+  font-size: @fontSizeL;
+  @media screen and (max-width: @gridSizeS) {
+    font-size: @fontSizeXXL;
+  }
 }
 
 :global(.weatherIcon) {
@@ -97,6 +106,12 @@
   width: 54px;
   background-image: url('/static/images/weather.png');
   background-size: cover;
+  @media screen and (max-width: @gridSizeS) {
+    transform: scale(1.5);
+    margin-bottom: 20px;
+    margin-left: 15px;
+        }
+
 }
 :global(.weatherIcon01d) {
   background-position: 0 0;
