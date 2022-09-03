@@ -15,6 +15,7 @@ export const Slider: React.FC<TProps> = memo(({ name }) => {
             clearTimeout(timeoutRef.current);
         }
     }
+
     const delay = Math.random() * 40000 + 10000;
 
     React.useEffect(() => {

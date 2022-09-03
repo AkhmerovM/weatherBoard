@@ -9,6 +9,7 @@
   top: 0;
   left: 0;
 }
+
 .thunder {
   .size(100%);
   background-size: cover;
@@ -16,17 +17,18 @@
   background-repeat: no-repeat;
   position: relative;
   z-index: 0;
-  &:after {
+
+  &::after {
     content: '';
-  .size(100%);
-  .abs-pos();
+    .size(100%);
+    .abs-pos();
     z-index: 1;
     animation: thunder-bg 6s infinite;
   }
 }
 
 canvas {
-.abs-pos();
+  .abs-pos();
 }
 
 .canvas3 {
