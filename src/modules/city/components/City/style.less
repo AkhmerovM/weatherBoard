@@ -23,8 +23,8 @@
     }
   }
   @media ( min-width: @gridSizeM ) and ( max-width: @gridSizeXL ) {
-    max-width: calc(33% - 8px);
-    padding-top: 32%;
+    max-width: calc(32% - 8px);
+    padding-top: 31%;
     margin-bottom: 16px;
 
     &:not( :nth-of-type( 3n ) ) {
@@ -86,6 +86,9 @@
 .title {
   font-size: @fontSizeL;
   text-shadow: 2px 2px 7px #000;
+  @media ( min-width: @gridSizeS ) and ( max-width: @gridSizeM ) {
+    font-size: @fontSizeXL;
+  }
   @media screen and ( max-width: @gridSizeS ) {
     font-size: @fontSizeXXL;
   }
@@ -101,6 +104,9 @@
 .time {
   font-size: @fontSizeL;
   text-shadow: 2px 2px 7px #000;
+  @media ( min-width: @gridSizeS ) and ( max-width: @gridSizeM ) {
+    font-size: @fontSizeXL;
+  }
   @media screen and ( max-width: @gridSizeS ) {
     font-size: @fontSizeXXL;
   }
@@ -110,6 +116,9 @@
   font-family: Play, sans-serif;
   font-size: @fontSizeL;
   text-shadow: 2px 2px 7px #000;
+  @media ( min-width: @gridSizeS ) and ( max-width: @gridSizeM ) {
+    font-size: @fontSizeXL;
+  }
   @media screen and ( max-width: @gridSizeS ) {
     font-size: @fontSizeXXL;
   }
@@ -162,5 +171,41 @@
 }
 
 :global( .weatherIcon50d ) {
+  background-position: -1710px 0;
+}
+
+:global( .weatherIcon01n ) {
+  background-position: -972px 0;
+}
+
+:global( .weatherIcon02n ) {
+  background-position: -1026px 0;
+}
+
+:global( .weatherIcon03n ) {
+  background-position: -114px 0;
+}
+
+:global( .weatherIcon04n ) {
+  background-position: -1482px 0;
+}
+
+:global( .weatherIcon09n ) {
+  background-position: -798px 0;
+}
+
+:global( .weatherIcon10n ) {
+  background-position: -1350px 0;
+}
+
+:global( .weatherIcon11n ) {
+  background-position: -1653px 0;
+}
+
+:global( .weatherIcon13n ) {
+  background-position: -456px 0;
+}
+
+:global( .weatherIcon50n ) {
   background-position: -1710px 0;
 }

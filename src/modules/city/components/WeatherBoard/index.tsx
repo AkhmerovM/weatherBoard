@@ -15,8 +15,8 @@ export function WeatherBoard () {
         };
     }, []);
     return (
-        <div className={styles.container}>
-            <div className={styles.wrapper}>
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
                 {cities.map((city, i) => {
                     return (<City key={i} city={city} />);
                 })}

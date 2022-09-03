@@ -18,7 +18,7 @@ weather board
 - нарисовать диаграмму компонентон на фронте и показать в видео
 bugs :
 - ~~double styles~~
-- разобраться с автоимпортом css
+- ~~разобраться с автоимпортом css~~
 - разобраться адаптовом
 - raineffect execution (violation)
 - sparticles (ts-ignore)

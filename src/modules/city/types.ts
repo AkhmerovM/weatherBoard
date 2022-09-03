@@ -1,16 +1,16 @@
 type SLIDER_IMAGE_VALUES = 1 | 2 | 3;
 
 export enum CITIES {
-    novokuznetsk = 'novokuznetsk',
-    moscow = 'moscow',
-    kazan = 'kazan',
-    vladikavkaz = 'vladikavkaz',
-    tumen = 'tumen',
-    'saint-petersburg' = 'saint-petersburg',
-    'Tomsk Oblast' = 'Tomsk Oblast',
-    'berlin' = 'Berlin',
-    'prague' = 'Prague',
-    'helsinki' = 'Helsinki'
+    Novokuznetsk = 'novokuznetsk',
+    Moscow = 'moscow',
+    'Kazan’' = 'kazan',
+    Vladikavkaz = 'vladikavkaz',
+    Tumen = 'tumen',
+    'Saint Petersburg' = 'saint-petersburg',
+    'Tomsk' = 'Tomsk',
+    'Berlin' = 'Berlin',
+    'Prague' = 'Prague',
+    'Helsinki' = 'Helsinki'
 }
 
 export type CITY_URL_NAMES = `${keyof typeof CITIES}${SLIDER_IMAGE_VALUES}`;
@@ -27,7 +27,16 @@ export enum WEATHER_ICONS {
     '10d'= '10d',
     '11d'= '11d',
     '13d'= '13d',
-    '50d'= '50d'
+    '50d'= '50d',
+    '01n'= '01n',
+    '02n'= '02n',
+    '03n'= '03n',
+    '04n'= '04n',
+    '09n'= '09n',
+    '10n'= '10n',
+    '11n'= '11n',
+    '13n'= '13n',
+    '50n'= '50n'
 }
 export enum WEATHER_NAME {
     Clouds = 'Clouds',
