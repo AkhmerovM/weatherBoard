@@ -28,7 +28,8 @@ module.exports = {
         'react/jsx-indent': ['error', 4],
         'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/prefer-default-export': 'off',
-        '@typescript-eslint/no-var-requires': 'off'
+        '@typescript-eslint/no-var-requires': 'off',
+        'no-new': 'off'
     },
     settings: {
         'import/resolver': {

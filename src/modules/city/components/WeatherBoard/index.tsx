@@ -15,11 +15,14 @@ export function WeatherBoard () {
         };
     }, []);
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.container}>
-                {cities.map((city, i) => {
-                    return (<City key={i} city={city} />);
-                })}
+        <div className={styles.weatherBoard}>
+            <div className={styles.title}>weatherBoard</div>
+            <div className={styles.wrapper}>
+                <div className={styles.container}>
+                    {cities.map((city, i) => {
+                        return (<City key={i} city={city}/>);
+                    })}
+                </div>
             </div>
         </div>
     );
