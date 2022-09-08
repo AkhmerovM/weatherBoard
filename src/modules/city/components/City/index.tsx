@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.less';
-import { formatTemperatureDegree, getCityImgUrl, getTimeZoneTime } from '@/modules/city/utils';
+import { formatTemperatureDegree, getTimeZoneTime } from '@/modules/city/utils';
 import { TCity } from '@/modules/city/types';
 import { CITY_NAMES } from '@/modules/city/constants';
 import { getWeatherIconsStyleClasses } from '@/modules/city/components/City/utils';

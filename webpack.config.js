@@ -4,10 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = process.env.NODE_ENV === 'production';
-const isAnalyze = process.env.ANALYZE === 'true';
-
 const paths = {
     public: path.resolve(__dirname, 'static'),
     build: path.resolve(__dirname, 'static/build'),
@@ -59,7 +55,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.less'],
+        extensions: ['.tsx', '.ts', '.js'],
         alias: {
             '@': paths.src
         }
