@@ -1,9 +1,7 @@
-import { TCity } from '@/modules/city/types';
-
 export const ROUTES = {
     city: '/cities'
 };
-export const cities: TCity[] = [
+export const cities = [
     { coord: { lon: 87.1099, lat: 53.7557 }, weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03d' }], base: 'stations', main: { temp: 18.44, feels_like: 17.59, temp_min: 18.44, temp_max: 18.44, pressure: 1021, humidity: 48, sea_level: 1021, grnd_level: 996 }, visibility: 10000, wind: { speed: 1.35, deg: 25, gust: 1.37 }, clouds: { all: 45 }, dt: 1662205322, sys: { type: 2, id: 69385, country: 'RU', sunrise: 1662160993, sunset: 1662209961 }, timezone: 25200, id: 1496990, name: 'Novokuznetsk', cod: 200 },
     { coord: { lon: 44.6678, lat: 43.0367 }, weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03d' }], base: 'stations', main: { temp: 33.92, feels_like: 33.18, temp_min: 33.92, temp_max: 33.92, pressure: 1012, humidity: 30 }, visibility: 10000, wind: { speed: 2, deg: 90 }, clouds: { all: 40 }, dt: 1662205423, sys: { type: 2, id: 48794, country: 'RU', sunrise: 1662172062, sunset: 1662219259 }, timezone: 10800, id: 473249, name: 'Vladikavkaz', cod: 200 },
     { coord: { lon: 84.9667, lat: 56.5 }, weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01d' }], base: 'stations', main: { temp: 17.15, feels_like: 16.33, temp_min: 15.53, temp_max: 17.41, pressure: 1008, humidity: 54 }, visibility: 10000, wind: { speed: 5, deg: 150 }, clouds: { all: 0 }, dt: 1662205717, sys: { type: 2, id: 2032314, country: 'RU', sunrise: 1662161205, sunset: 1662210777 }, timezone: 25200, id: 1489425, name: 'Tomsk', cod: 200 },

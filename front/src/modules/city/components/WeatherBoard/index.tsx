@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './style.less';
 import { City } from '@/modules/city/components/City';
-import { useSelectCities } from '@/modules/city/selectors';
 
 export function WeatherBoard () {
-    const cities = useSelectCities();
+    // const cities = useSelectCities();
+    const [cities, SetCities] = useState([]);
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'rainEffect.js';
@@ -13,6 +13,18 @@ export function WeatherBoard () {
         return () => {
             document.body.removeChild(script);
         };
+    }, []);
+    useEffect(() => {
+        fetch('http://localhost:8090/cities').then((response) => {
+            if (response.ok) {
+                console.log('RESPONSE');
+                console.log(response.json().then((data) => {
+                    SetCities(data);
+                }));
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }, []);
     return (
         <div className={styles.weatherBoard}>

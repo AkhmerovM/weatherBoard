@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode=production",
-    "start": "webpack serve --mode=development",
-    "server": "ts-node src/server/server.ts --showConfig"
+    "start": "webpack serve --mode=development"
   },
   "repository": {
     "type": "git",
@@ -47,7 +46,6 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^28.0.0",
     "ts-loader": "9.3.1",
-    "ts-node": "10.9.1",
     "typescript": "4.7.4",
     "webpack": "5.73.0",
     "webpack-cli": "4.10.0",
@@ -56,7 +54,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.8.3",
-    "express": "4.18.1",
     "moment": "2.29.4",
     "moment-timezone": "0.5.34",
     "react": "18.2.0",
