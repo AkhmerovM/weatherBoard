@@ -31,7 +31,7 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     Helsinki1: '/images/cities/helsinki/helsinki1.jpg',
     Helsinki2: '/images/cities/helsinki/helsinki2.png',
     Helsinki3: '/images/cities/helsinki/helsinki3.jpg',
-    default: '/images/cities/moscow.png'
+    default: '/images/cities/moscow/moscow1.jpeg'
 };
 
 export const CITY_NAMES: {[key in keyof typeof CITIES]: string} = {

@@ -77,9 +77,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-                { from: path.resolve(__dirname, 'src/images'), to: path.resolve(__dirname, 'static/images') },
-                { from: path.resolve(__dirname, 'src/fonts'), to: path.resolve(__dirname, 'static/fonts') },
-                { from: path.resolve(__dirname, 'src/scripts'), to: path.resolve(__dirname, 'static/build') }
+                { from: path.resolve(__dirname, 'src/static/images'), to: path.resolve(__dirname, 'static/images') },
+                { from: path.resolve(__dirname, 'src/static/scripts'), to: path.resolve(__dirname, 'static/build') }
             ]
         }),
         new WriteFilePlugin()

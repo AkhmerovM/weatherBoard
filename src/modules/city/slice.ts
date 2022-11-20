@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { cities } from './cities';
 import { TCity } from './types';
+import { cities } from '@/server/constants';
 
 export type CityState = {
     data: TCity[]
