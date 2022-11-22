@@ -15,7 +15,8 @@ module.exports = {
     output: {
         path: paths.build,
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        assetModuleFilename: 'assets/[name][ext]'
     },
     module: {
         rules: [
@@ -51,6 +52,10 @@ module.exports = {
                         loader: 'less-loader' // compiles Less to CSS
                     }
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                type: 'asset/resource'
             }
         ]
     },

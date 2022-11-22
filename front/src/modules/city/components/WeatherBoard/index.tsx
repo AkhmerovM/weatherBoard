@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styles from './style.less';
 import { City } from '@/modules/city/components/City';
+import { SunLoader } from '@/modules/city/components/SunLoader';
 
 export function WeatherBoard () {
     // const cities = useSelectCities();
-    const [cities, SetCities] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [cities, setCities] = useState([]);
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'rainEffect.js';
@@ -17,10 +19,10 @@ export function WeatherBoard () {
     useEffect(() => {
         fetch('http://localhost:8090/cities').then((response) => {
             if (response.ok) {
-                console.log('RESPONSE');
-                console.log(response.json().then((data) => {
-                    SetCities(data);
-                }));
+                response.json().then((data) => {
+                    setCities(data);
+                    setIsLoaded(true);
+                });
             }
         }).catch((error) => {
             console.log(error);
@@ -29,13 +31,17 @@ export function WeatherBoard () {
     return (
         <div className={styles.weatherBoard}>
             <div className={styles.title}>weatherBoard</div>
-            <div className={styles.wrapper}>
-                <div className={styles.container}>
-                    {cities.map((city, i) => {
-                        return (<City key={i} city={city}/>);
-                    })}
+            {isLoaded
+                ? <div className={styles.wrapper}>
+                    <div className={styles.container}>
+                        {cities.map((city, i) => {
+                            return (<City key={i} city={city}/>);
+                        })}
+                    </div>
                 </div>
-            </div>
+                : <div className={styles.loaderContainer}>
+                    <SunLoader/>
+                </div>}
         </div>
     );
 }
