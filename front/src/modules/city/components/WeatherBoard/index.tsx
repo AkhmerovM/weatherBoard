@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './style.less';
 import { City } from '@/modules/city/components/City';
 import { SunLoader } from '@/modules/city/components/SunLoader';
+import { useSelectCities } from '@/modules/city/selectors';
+import { useDispatch } from 'react-redux';
+import { fetchCities } from '@/modules/city/api';
 
 export function WeatherBoard () {
-    // const cities = useSelectCities();
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [cities, setCities] = useState([]);
+    const dispatch = useDispatch();
+    const cities = useSelectCities();
+    useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        dispatch(fetchCities());
+    }, []);
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'rainEffect.js';
@@ -16,22 +23,10 @@ export function WeatherBoard () {
             document.body.removeChild(script);
         };
     }, []);
-    useEffect(() => {
-        fetch('http://localhost:8090/cities').then((response) => {
-            if (response.ok) {
-                response.json().then((data) => {
-                    setCities(data);
-                    setIsLoaded(true);
-                });
-            }
-        }).catch((error) => {
-            console.log(error);
-        });
-    }, []);
     return (
         <div className={styles.weatherBoard}>
             <div className={styles.title}>weatherBoard</div>
-            {isLoaded
+            {cities.length > 0
                 ? <div className={styles.wrapper}>
                     <div className={styles.container}>
                         {cities.map((city, i) => {

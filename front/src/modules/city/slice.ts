@@ -1,14 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TCity } from './types';
 
 export type CityState = {
     data: TCity[]
 }
-export const citySlice = createSlice<CityState, {[key: string]:(state: CityState) => void}, string>({
-    name: 'weather',
+type CityCaseReducers = {
+    loadCities: (state: CityState, action: PayloadAction<TCity[]>) => CityState
+}
+export const citySlice = createSlice<CityState, CityCaseReducers>({
+    name: 'city',
     initialState: {
         data: []
     },
     reducers: {
+        loadCities: (state: CityState, action: PayloadAction<TCity[]>): CityState => {
+            console.log('LOAD CITIES', action);
+            return { data: action.payload };
+        }
     }
 });
+export const actions = citySlice.actions;
