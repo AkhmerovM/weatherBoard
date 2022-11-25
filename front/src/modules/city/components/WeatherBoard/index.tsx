@@ -5,13 +5,12 @@ import { SunLoader } from '@/modules/city/components/SunLoader';
 import { useSelectCities } from '@/modules/city/selectors';
 import { useDispatch } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
+import { AppDispatch } from '@/store/store';
 
 export function WeatherBoard () {
-    const dispatch = useDispatch();
+    const dispatch: AppDispatch = useDispatch();
     const cities = useSelectCities();
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         dispatch(fetchCities());
     }, []);
     useEffect(() => {

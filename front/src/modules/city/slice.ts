@@ -14,7 +14,6 @@ export const citySlice = createSlice<CityState, CityCaseReducers>({
     },
     reducers: {
         loadCities: (state: CityState, action: PayloadAction<TCity[]>): CityState => {
-            console.log('LOAD CITIES', action);
             return { data: action.payload };
         }
     }
