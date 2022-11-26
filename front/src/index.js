@@ -1,7 +1,6 @@
 import ReactDom from 'react-dom/client';
 import React from 'react';
 import { App } from './App.tsx';
-
 const root = document.getElementById('root');
 
 if (!root) {

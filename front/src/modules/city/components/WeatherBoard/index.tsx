@@ -13,15 +13,6 @@ export function WeatherBoard () {
     useEffect(() => {
         dispatch(fetchCities());
     }, []);
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'rainEffect.js';
-        script.async = true;
-        document.body.appendChild(script);
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
     return (
         <div className={styles.weatherBoard}>
             <div className={styles.title}>weatherBoard</div>

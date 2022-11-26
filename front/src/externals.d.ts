@@ -14,3 +14,4 @@ type sparticlesType = {
     Sparticles: (obj: HTMLDivElement, options: object) => object;
 };
 declare const mySparticles: sparticlesType;
+declare const makeItRain: () => void;

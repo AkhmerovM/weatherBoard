@@ -1,6 +1,6 @@
-import { Dispatch } from '@reduxjs/toolkit';
+import { Action, Dispatch } from '@reduxjs/toolkit';
 import { actions } from '@/modules/city/slice';
-export const fetchCities = (): (dispatch: Dispatch) => Promise<any> => {
+export const fetchCities = (): (dispatch: Dispatch) => Promise<Action> => {
     return async (dispatch: Dispatch) => {
         const data = await fetch('http://localhost:8090/cities').then((response) => {
             if (response.ok) {
