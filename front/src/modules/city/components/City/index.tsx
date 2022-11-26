@@ -43,7 +43,7 @@ export class City extends React.Component<TProps, TState> {
         const formattedTime = getTimeZoneTime(time, timezone);
         return <div className={styles.wrapper}>
             <div className={styles.bg}>
-                {/*<Slider name={name} ></Slider>*/}
+                <Slider name={name} ></Slider>
             </div>
             <div className={styles.container} >
                 <AnimationWeatherSwitcher weatherName={weatherName} />
