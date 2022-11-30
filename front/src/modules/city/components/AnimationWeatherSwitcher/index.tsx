@@ -4,6 +4,7 @@ import styles from './style.less';
 import { RainComponent } from '@/modules/city/components/RainComponent';
 import { CloudComponent } from '@/modules/city/components/CloudComponent';
 import { SnowComponent } from '@/modules/city/components/SnowComponent';
+import { SunComponent } from '@/modules/city/components/SunComponent';
 
 type TProps ={
     weatherName: keyof typeof WEATHER_NAME,
@@ -13,5 +14,6 @@ export const AnimationWeatherSwitcher: React.FC<TProps> = memo(({ weatherName })
         {weatherName === WEATHER_NAME.Clouds && <CloudComponent />}
         {weatherName === WEATHER_NAME.Rain && <RainComponent />}
         {weatherName === WEATHER_NAME.Snow && <SnowComponent />}
+        {weatherName === WEATHER_NAME.Clear && <SunComponent />}
     </div>;
 });
