@@ -94,3 +94,7 @@ export type TCity = {
         }
     ]
 }
+export type Response<D> = {
+    data: D,
+    error: Error
+}

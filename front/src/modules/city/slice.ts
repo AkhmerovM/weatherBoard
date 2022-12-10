@@ -2,19 +2,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TCity } from './types';
 
 export type CityState = {
-    data: TCity[]
+    data: TCity[],
+    error: Error
 }
 type CityCaseReducers = {
-    loadCities: (state: CityState, action: PayloadAction<TCity[]>) => CityState
+    loadCities: (state: CityState, action: PayloadAction<CityState>) => CityState
 }
 export const citySlice = createSlice<CityState, CityCaseReducers>({
     name: 'city',
     initialState: {
-        data: []
+        data: [],
+        error: null
     },
     reducers: {
-        loadCities: (state: CityState, action: PayloadAction<TCity[]>): CityState => {
-            return { data: action.payload };
+        loadCities: (state: CityState, action: PayloadAction<CityState>): CityState => {
+            return { data: action.payload.data, error: action.payload.error };
         }
     }
 });
