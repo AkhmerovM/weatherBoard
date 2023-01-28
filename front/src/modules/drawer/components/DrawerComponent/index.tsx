@@ -1,9 +1,10 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ALL_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
 import { Button, Divider, Drawer } from 'antd';
 import { CITY_NAMES } from '@/modules/city/constants';
 import { TCity } from '@/modules/city/types';
 import { PropType } from '@/modules/common/types';
+import { drawerActions } from '@/modules/drawer/slice';
 
 type DrawerComponentProps = {
     handleClose: () => void,
@@ -17,6 +18,9 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
     }).map(id => +id);
     const [anotherCities, setAnotherCities] = useState<PropType<TCity, 'id'>[]>(anotherCitiesIds);
     const [isChanged, setIsChanged] = useState(false);
+    useEffect(() => {
+        drawerActions.set(activeCitiesIds);
+    }, [activeCitiesIds]);
     const handleAddAnotherCity = (cityId: PropType<TCity, 'id'>) => {
         setActiveCities(activeCities.concat(cityId));
         setAnotherCities(anotherCities.filter((id) => cityId !== id));
@@ -28,7 +32,7 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
         setIsChanged(true);
     };
     const handleSaveActiveCities = () => {
-
+        drawerActions.set(activeCities);
     };
 
     return (

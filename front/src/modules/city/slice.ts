@@ -28,4 +28,4 @@ export const citySlice = createSlice<CityState, CityCaseReducers>({
         }
     }
 });
-export const actions = citySlice.actions;
+export const cityActions = citySlice.actions;
