@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './style.less';
 import { SunLoader } from '@/modules/city/components/SunLoader';
 import { useSelectCityState } from '@/modules/city/selectors';
@@ -8,18 +8,37 @@ import { AppDispatch } from '@/store/store';
 import { CitiesContainer } from '@/modules/city/components/CitiesContainer/CitiesContainer';
 import { ErrorComponent } from '@/modules/city/components/ErrorComponent';
 import { ModuleState } from '@/store/types';
+import { Header } from '@/modules/city/components/Header';
+import { DrawerComponent } from '@/modules/drawer/components/DrawerComponent';
+import {DEFAULT_CITIES_IN_DRAWER} from "@/modules/drawer/constants";
 
 export function WeatherBoard () {
+    const [open, setOpen] = useState(true);
     const dispatch: AppDispatch = useDispatch();
     const { data: cities, error, state } = useSelectCityState();
+
+    const activeCitiesIds = [11];
+    // const initialCities = localStorage.getItem('cities');
+
+
+
     useEffect(() => {
-        dispatch(fetchCities());
+        dispatch(fetchCities(activeCitiesIds));
     }, []);
+
+    const handleOpen = useCallback(() => {
+        setOpen(true);
+    }, []);
+    const handleClose = useCallback(() => {
+        setOpen(false);
+    }, []);
+
     if (state === ModuleState.error) {
         return (<div className={styles.centerContainer}>
             <ErrorComponent error={error} />
         </div>);
     }
+
     if (state === ModuleState.loading) {
         return (<div className={styles.centerContainer}>
             <SunLoader/>
@@ -27,10 +46,11 @@ export function WeatherBoard () {
     }
     return (
         <div className={styles.weatherBoard}>
-            <div className={styles.title}>weatherBoard</div>
+            <Header onClick={handleOpen} />
             <div className={styles.wrapper}>
                 <CitiesContainer cities={cities}/>
             </div>
+            <DrawerComponent activeCitiesIds={activeCitiesIds} handleClose={handleClose} isOpen={open} />
         </div>
     );
 }

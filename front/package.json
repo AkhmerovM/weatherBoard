@@ -53,7 +53,9 @@
     "write-file-webpack-plugin": "4.5.1"
   },
   "dependencies": {
+    "@ant-design/icons": "4.8.0",
     "@reduxjs/toolkit": "1.8.3",
+    "antd": "5.0.5",
     "axios": "^1.2.0",
     "moment": "2.29.4",
     "moment-timezone": "0.5.34",
