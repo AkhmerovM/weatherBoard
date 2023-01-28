@@ -17,7 +17,7 @@ export function WeatherBoard () {
     const dispatch: AppDispatch = useDispatch();
     const { data: cities, error, state } = useSelectCityState();
 
-    const activeCitiesIds = [11];
+    const activeCitiesIds = Object.keys(DEFAULT_CITIES_IN_DRAWER).map(id => +id);
     // const initialCities = localStorage.getItem('cities');
 
 

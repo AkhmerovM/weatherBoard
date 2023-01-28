@@ -7,64 +7,53 @@ export const ALL_CITIES_IN_DRAWER: {
 } = {
     1496990: {
         name: 'Novokuznetsk',
-        id: 1496990,
-        active: false
+        id: 1496990
     },
     473249: {
         name: 'Vladikavkaz',
-        id: 473249,
-        active: false
+        id: 473249
     },
     1489425: {
         name: 'Tomsk',
-        id: 1489425,
-        active: false
+        id: 1489425
     },
     551487: {
         name: 'Kazan’',
-        id: 551487,
-        active: false
+        id: 551487
     },
     2034340: {
         name: 'Tumen',
-        id: 2034340,
-        active: false
+        id: 2034340
     },
     498817: {
         name: 'Saint Petersburg',
-        id: 498817,
-        active: false
+        id: 498817
     },
     524901: {
         name: 'Moscow',
-        id: 524901,
-        active: false
+        id: 524901
     },
     3067696: {
         name: 'Prague',
-        id: 3067696,
-        active: false
+        id: 3067696
     },
     2950159: {
         name: 'Berlin',
-        id: 2950159,
-        active: false
+        id: 2950159
     },
     658225: {
         name: 'Helsinki',
-        id: 658225,
-        active: false
+        id: 658225
     }
 };
 
 export const DEFAULT_CITIES_IN_DRAWER: {
     [key: PropType<TCity, 'id'>]: CITY_DRAWER
 } = {
-    1496990: { name: 'Novokuznetsk', id: 1496990, active: true },
-    473249: { name: 'Vladikavkaz', id: 473249, active: true },
+    1496990: { name: 'Novokuznetsk', id: 1496990 },
+    473249: { name: 'Vladikavkaz', id: 473249 },
     1489425: {
         name: 'Tomsk',
-        id: 1489425,
-        active: true
+        id: 1489425
     }
 };

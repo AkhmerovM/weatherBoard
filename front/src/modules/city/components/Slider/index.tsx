@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { getCityImgUrl } from '@/modules/city/utils';
-import { CITIES } from '@/modules/city/types';
 import styles from './style.less';
+import { CITY_NAME } from '@/modules/city/types';
 
 type TProps = {
-    name: keyof typeof CITIES
+    name: keyof typeof CITY_NAME
 }
 export const Slider: React.FC<TProps> = memo(({ name }) => {
     const [index, setIndex] = React.useState(0);

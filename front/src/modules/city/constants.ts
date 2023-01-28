@@ -1,4 +1,5 @@
-import { CITIES, CITY_URL } from '@/modules/city/types';
+import { CITY_URL, TCity } from '@/modules/city/types';
+import { PropType } from '@/modules/common/types';
 
 export const CITY_IMAGE_URL_MAP: CITY_URL = {
     'Kazan’1': '/images/cities/kazan/kazan1.png',
@@ -34,15 +35,15 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     default: '/images/cities/moscow/moscow1.jpeg'
 };
 
-export const CITY_NAMES: {[key in keyof typeof CITIES]: string} = {
-    'Kazan’': 'Казань',
-    Novokuznetsk: 'Новокузнецк',
-    'Saint Petersburg': 'Санкт-Петербург',
-    Moscow: 'Москва',
-    Tumen: 'Тюмень',
-    Vladikavkaz: 'Владикавказ',
-    Tomsk: 'Томск',
-    Berlin: 'Берлин',
-    Prague: 'Прага',
-    Helsinki: 'Хельсинки'
+export const CITY_NAMES: {[key: PropType<TCity, 'id'>]: string} = {
+    1496990: 'Новокузнецк',
+    473249: 'Владикавказ',
+    1489425: 'Томск',
+    551487: 'Казань',
+    2034340: 'Тюмень',
+    498817: 'Санкт-Петербург',
+    524901: 'Москва',
+    3067696: 'Прага',
+    2950159: 'Берлин',
+    658225: 'Хельсинки'
 };

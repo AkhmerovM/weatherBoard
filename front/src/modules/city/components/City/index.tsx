@@ -36,7 +36,7 @@ export class City extends React.Component<TProps, TState> {
 
     render () {
         const { time } = this.state;
-        const { city: { timezone, main: { temp }, name, weather } } = this.props;
+        const { city: { timezone, main: { temp }, name, weather, id } } = this.props;
         const weatherIcon = weather[0].icon;
         const weatherName = weather[0].main;
         const temperature = formatTemperatureDegree(Math.floor(temp));
@@ -49,7 +49,7 @@ export class City extends React.Component<TProps, TState> {
                 <AnimationWeatherSwitcher weatherName={weatherName} />
                 <div className={styles.top}>
                     <div className={styles.title}>
-                        {CITY_NAMES[name]}
+                        {CITY_NAMES[id]}
                     </div>
                     <div className={styles.time}>
                         {formattedTime}

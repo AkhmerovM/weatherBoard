@@ -1,19 +1,19 @@
 type SLIDER_IMAGE_VALUES = 1 | 2 | 3;
 
-export enum CITIES {
-    Novokuznetsk = 'novokuznetsk',
-    Moscow = 'moscow',
-    'Kazan’' = 'kazan',
-    Vladikavkaz = 'vladikavkaz',
-    Tumen = 'tumen',
-    'Saint Petersburg' = 'saint-petersburg',
+export enum CITY_NAME {
+    Novokuznetsk = 'Novokuznetsk',
+    Moscow = 'Moscow',
+    'Kazan’' = 'Kazan',
+    Vladikavkaz = 'Vladikavkaz',
+    Tumen = 'Tumen',
+    'Saint Petersburg' = 'Saint-petersburg',
     'Tomsk' = 'Tomsk',
     'Berlin' = 'Berlin',
     'Prague' = 'Prague',
     'Helsinki' = 'Helsinki'
 }
 
-export type CITY_URL_NAMES = `${keyof typeof CITIES}${SLIDER_IMAGE_VALUES}`;
+export type CITY_URL_NAMES = `${keyof typeof CITY_NAME}${SLIDER_IMAGE_VALUES}`;
 export type CITY_URL = {
     [key in CITY_URL_NAMES]: string;
 } & {default: string};
@@ -62,7 +62,7 @@ export type TCity = {
     base: string
     timezone: number,
     id: number,
-    name: keyof typeof CITIES,
+    name: keyof typeof CITY_NAME,
     cod: number,
     main: {
         temp: number,
