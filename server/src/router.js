@@ -3,9 +3,13 @@ import {cities} from "./constants.js";
 
 export const cityRouter = express.Router();
 
-cityRouter.get('/', (req, res) => {
-    const delay = 0;
+cityRouter.post('/', (req, res) => {
+    const delay = 1000;
     setTimeout(() => {
-        res.send(cities);
+        const citiesIds = req.body.cities;
+        const data = citiesIds.map((cityId) => {
+            return cities.find((city) => city.id === +cityId);
+        })
+        res.send(data);
     }, delay);
 });

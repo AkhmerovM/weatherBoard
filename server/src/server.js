@@ -1,6 +1,8 @@
 import express from 'express';
 import { ROUTES } from './constants.js';
 import { cityRouter } from './router.js';
+import bodyParser  from 'body-parser';
+
 
 import cors from "cors";
 import {logger} from "./logger.js";
@@ -12,7 +14,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(logger);
-
+app.use(bodyParser.json());
 app.use(ROUTES.city, cityRouter);
 
 

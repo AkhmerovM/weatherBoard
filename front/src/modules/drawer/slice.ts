@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PropType } from '@/modules/common/types';
 import { TCity } from '@/modules/city/types';
 
-type TDrawerState = PropType<TCity, 'id'>[];
+export type DrawerState = PropType<TCity, 'id'>[];
 
 export type DrawerCaseReducer = {
-    set: (state: TDrawerState, action: PayloadAction<PropType<TCity, 'id'>[]>) => TDrawerState
+    set: (state: DrawerState, action: PayloadAction<PropType<TCity, 'id'>[]>) => DrawerState
 }
 
-export const drawerSlice = createSlice<TDrawerState, DrawerCaseReducer>({
+export const drawerSlice = createSlice<DrawerState, DrawerCaseReducer>({
     name: 'DrawerSlice',
     initialState: [],
     reducers: {

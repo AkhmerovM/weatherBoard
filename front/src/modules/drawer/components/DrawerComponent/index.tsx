@@ -5,14 +5,19 @@ import { CITY_NAMES } from '@/modules/city/constants';
 import { TCity } from '@/modules/city/types';
 import { PropType } from '@/modules/common/types';
 import { drawerActions } from '@/modules/drawer/slice';
+import { AppDispatch } from '@/store/store';
+import { useDispatch } from 'react-redux';
+import { fetchCities } from '@/modules/city/api';
 
 type DrawerComponentProps = {
     handleClose: () => void,
     isOpen: boolean,
     activeCitiesIds: PropType<TCity, 'id'>[],
+    submitSetActiveCities: () => void,
 }
-export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, isOpen, activeCitiesIds }) => {
+export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, isOpen, activeCitiesIds, submitSetActiveCities }) => {
     const [activeCities, setActiveCities] = useState<PropType<TCity, 'id'>[]>(activeCitiesIds);
+    const dispatch: AppDispatch = useDispatch();
     const anotherCitiesIds = Object.keys(ALL_CITIES_IN_DRAWER).filter((id) => {
         return !activeCitiesIds.find((el) => el === +id);
     }).map(id => +id);
@@ -31,8 +36,10 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
         setActiveCities(activeCities.filter((id) => cityId !== id));
         setIsChanged(true);
     };
-    const handleSaveActiveCities = () => {
+    const handleSetActiveCities = () => {
         drawerActions.set(activeCities);
+        dispatch(fetchCities(activeCities));
+        submitSetActiveCities();
     };
 
     return (
@@ -56,7 +63,7 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
                 })
             }
             <div>
-                <Button type={'primary'} disabled={!isChanged} onClick={handleSaveActiveCities}>Save</Button>
+                <Button type={'primary'} disabled={!isChanged} onClick={handleSetActiveCities}>Save</Button>
             </div>
         </Drawer>
     );

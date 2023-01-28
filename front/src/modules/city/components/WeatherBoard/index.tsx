@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styles from './style.less';
 import { SunLoader } from '@/modules/city/components/SunLoader';
 import { useSelectCityState } from '@/modules/city/selectors';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
 import { AppDispatch } from '@/store/store';
 import { CitiesContainer } from '@/modules/city/components/CitiesContainer/CitiesContainer';
@@ -10,17 +10,18 @@ import { ErrorComponent } from '@/modules/city/components/ErrorComponent';
 import { ModuleState } from '@/store/types';
 import { Header } from '@/modules/city/components/Header';
 import { DrawerComponent } from '@/modules/drawer/components/DrawerComponent';
-import {DEFAULT_CITIES_IN_DRAWER} from "@/modules/drawer/constants";
+import { DEFAULT_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
+import { selectActiveCitiesIds } from '@/modules/drawer/selectors';
 
 export function WeatherBoard () {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const dispatch: AppDispatch = useDispatch();
     const { data: cities, error, state } = useSelectCityState();
-
-    const activeCitiesIds = Object.keys(DEFAULT_CITIES_IN_DRAWER).map(id => +id);
+    let activeCitiesIds = useSelector(selectActiveCitiesIds);
+    if (!activeCitiesIds.length) {
+        activeCitiesIds = Object.keys(DEFAULT_CITIES_IN_DRAWER).map(id => +id);
+    }
     // const initialCities = localStorage.getItem('cities');
-
-
 
     useEffect(() => {
         dispatch(fetchCities(activeCitiesIds));
@@ -50,7 +51,7 @@ export function WeatherBoard () {
             <div className={styles.wrapper}>
                 <CitiesContainer cities={cities}/>
             </div>
-            <DrawerComponent activeCitiesIds={activeCitiesIds} handleClose={handleClose} isOpen={open} />
+            <DrawerComponent submitSetActiveCities={handleClose} activeCitiesIds={activeCitiesIds} handleClose={handleClose} isOpen={open} />
         </div>
     );
 }

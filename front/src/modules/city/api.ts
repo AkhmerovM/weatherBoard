@@ -10,7 +10,7 @@ export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch
         try {
             dispatch(cityActions.startLoadingCities());
 
-            const response: AxiosResponse = await axios.get('http://localhost:8090/cities', { params: activeCitiesIds });
+            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cities: activeCitiesIds });
             if (response.statusText === 'OK') {
                 return dispatch(cityActions.loadCities({ data: response.data, error: null, state: ModuleState.success }));
             } else {

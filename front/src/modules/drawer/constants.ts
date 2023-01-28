@@ -55,5 +55,9 @@ export const DEFAULT_CITIES_IN_DRAWER: {
     1489425: {
         name: 'Tomsk',
         id: 1489425
+    },
+    551487: {
+        name: 'Kazan’',
+        id: 551487
     }
 };
