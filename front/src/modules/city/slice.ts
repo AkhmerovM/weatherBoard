@@ -5,7 +5,7 @@ import { ModuleState } from '@/store/types';
 export type CityState = {
     data: TCity[],
     error: Error,
-    state: ModuleState
+    moduleState: ModuleState
 }
 type CityCaseReducers = {
     loadCities: (state: CityState, action: PayloadAction<CityState>) => CityState
@@ -16,15 +16,15 @@ export const citySlice = createSlice<CityState, CityCaseReducers>({
     initialState: {
         data: [],
         error: null,
-        state: ModuleState.initial
+        moduleState: ModuleState.initial
     },
     reducers: {
         loadCities: (state: CityState, action: PayloadAction<CityState>): CityState => {
-            const { data, error, state: moduleState } = action.payload;
-            return { data, error, state: moduleState };
+            const { data, error, moduleState } = action.payload;
+            return { data, error, moduleState };
         },
         startLoadingCities: (state: CityState): CityState => {
-            return { ...state, state: ModuleState.loading };
+            return { ...state, moduleState: ModuleState.loading };
         }
     }
 });

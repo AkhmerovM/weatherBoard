@@ -1,6 +1,8 @@
 import { AppState } from '@/store/store';
 import { DrawerState } from '@/modules/drawer/slice';
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectActiveCitiesIds = (state: AppState): DrawerState => {
+const selectActiveCities = (state: AppState): DrawerState => {
     return state.drawer;
 };
+export const selectActiveCitiesIds = createSelector(selectActiveCities, (items) => items);

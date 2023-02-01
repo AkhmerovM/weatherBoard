@@ -23,9 +23,11 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
     }).map(id => +id);
     const [anotherCities, setAnotherCities] = useState<PropType<TCity, 'id'>[]>(anotherCitiesIds);
     const [isChanged, setIsChanged] = useState(false);
+
     useEffect(() => {
-        drawerActions.set(activeCitiesIds);
-    }, [activeCitiesIds]);
+        dispatch(drawerActions.set(activeCitiesIds));
+    }, []);
+
     const handleAddAnotherCity = (cityId: PropType<TCity, 'id'>) => {
         setActiveCities(activeCities.concat(cityId));
         setAnotherCities(anotherCities.filter((id) => cityId !== id));
@@ -37,9 +39,9 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
         setIsChanged(true);
     };
     const handleSetActiveCities = () => {
-        drawerActions.set(activeCities);
-        dispatch(fetchCities(activeCities));
+        dispatch(drawerActions.set(activeCities));
         submitSetActiveCities();
+        dispatch(fetchCities(activeCities));
     };
 
     return (

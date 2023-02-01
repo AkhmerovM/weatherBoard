@@ -16,7 +16,7 @@ import { selectActiveCitiesIds } from '@/modules/drawer/selectors';
 export function WeatherBoard () {
     const [open, setOpen] = useState(false);
     const dispatch: AppDispatch = useDispatch();
-    const { data: cities, error, state } = useSelectCityState();
+    const { data: cities, error, moduleState } = useSelectCityState();
     let activeCitiesIds = useSelector(selectActiveCitiesIds);
     if (!activeCitiesIds.length) {
         activeCitiesIds = Object.keys(DEFAULT_CITIES_IN_DRAWER).map(id => +id);
@@ -34,16 +34,18 @@ export function WeatherBoard () {
         setOpen(false);
     }, []);
 
-    if (state === ModuleState.error) {
+    if (moduleState === ModuleState.error) {
         return (<div className={styles.centerContainer}>
             <ErrorComponent error={error} />
         </div>);
     }
 
-    if (state === ModuleState.loading) {
-        return (<div className={styles.centerContainer}>
-            <SunLoader/>
-        </div>);
+    if (moduleState === ModuleState.loading) {
+        return (
+            <div className={styles.centerContainer}>
+                <SunLoader/>
+            </div>
+        );
     }
     return (
         <div className={styles.weatherBoard}>

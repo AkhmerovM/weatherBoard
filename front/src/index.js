@@ -8,7 +8,5 @@ if (!root) {
 }
 const rootRender = ReactDom.createRoot(root);
 rootRender.render(
-    <React.StrictMode>
         <App />
-    </React.StrictMode>
 );

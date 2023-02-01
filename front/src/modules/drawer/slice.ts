@@ -13,6 +13,7 @@ export const drawerSlice = createSlice<DrawerState, DrawerCaseReducer>({
     initialState: [],
     reducers: {
         set: (state, action) => {
+            console.log(action.payload);
             return action.payload;
         }
     }

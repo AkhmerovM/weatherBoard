@@ -12,14 +12,14 @@ export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch
 
             const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cities: activeCitiesIds });
             if (response.statusText === 'OK') {
-                return dispatch(cityActions.loadCities({ data: response.data, error: null, state: ModuleState.success }));
+                return dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
             } else {
                 console.log(response);
                 throw new Error(response.statusText);
             }
         } catch (error: unknown) {
             if (error instanceof AxiosError || error instanceof Error) {
-                return dispatch(cityActions.loadCities({ data: null, error, state: ModuleState.error }));
+                return dispatch(cityActions.loadCities({ data: null, error, moduleState: ModuleState.error }));
             }
         }
     };
