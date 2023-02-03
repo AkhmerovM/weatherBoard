@@ -8,6 +8,7 @@ import { drawerActions } from '@/modules/drawer/slice';
 import { AppDispatch } from '@/store/store';
 import { useDispatch } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
+import {LocalStorageService} from "@/modules/drawer/services/localStorage";
 
 type DrawerComponentProps = {
     handleClose: () => void,
@@ -41,6 +42,7 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
     const handleSetActiveCities = () => {
         dispatch(drawerActions.set(activeCities));
         submitSetActiveCities();
+        LocalStorageService.set('cities', activeCities);
         dispatch(fetchCities(activeCities));
     };
 
