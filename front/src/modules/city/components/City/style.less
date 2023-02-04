@@ -76,17 +76,19 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  justify-content: space-between;
 };
 
 .top {
   display: flex;
-  flex: 1;
   justify-content: space-between;
 }
 
 .title {
   font-size: @fontSizeL;
   text-shadow: 2px 2px 7px #000;
+  display: flex;
+  align-items: center;
   @media ( min-width: @gridSizeS ) and ( max-width: @gridSizeM ) {
     font-size: @fontSizeXL;
   }
@@ -209,4 +211,10 @@
 
 :global( .weatherIcon50n ) {
   background-position: -1710px 0;
+}
+
+.buttonImage {
+  margin-left: 5px;
+  width: 22px;
+  box-shadow: 2px 2px 15px #000;
 }

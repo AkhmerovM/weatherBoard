@@ -6,6 +6,7 @@ import { CITY_NAMES } from '@/modules/city/constants';
 import { getWeatherIconsStyleClasses } from '@/modules/city/components/City/utils';
 import { AnimationWeatherSwitcher } from '@/modules/city/components/AnimationWeatherSwitcher';
 import { Slider } from '@/modules/city/components/Slider';
+import {DRAWER_CITY_SVG_URL_MAP} from "@/modules/drawer/constants";
 type TProps = {
     city: TCity,
 }
@@ -49,7 +50,8 @@ export class City extends React.Component<TProps, TState> {
                 <AnimationWeatherSwitcher weatherName={weatherName} />
                 <div className={styles.top}>
                     <div className={styles.title}>
-                        {CITY_NAMES[id]}
+                        <span>{CITY_NAMES[id]}</span>
+                        <img className={styles.buttonImage} src={DRAWER_CITY_SVG_URL_MAP[id]} alt={'flag'} />
                     </div>
                     <div className={styles.time}>
                         {formattedTime}

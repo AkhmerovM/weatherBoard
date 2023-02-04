@@ -9,7 +9,7 @@ import { CitiesContainer } from '@/modules/city/components/CitiesContainer/Citie
 import { ErrorComponent } from '@/modules/city/components/ErrorComponent';
 import { ModuleState } from '@/store/types';
 import { Header } from '@/modules/city/components/Header';
-import { DEFAULT_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
+import { DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 
 export function WeatherBoard () {
@@ -18,7 +18,7 @@ export function WeatherBoard () {
     let activeCitiesIds = LocalStorageService.get('cities');
 
     if (!activeCitiesIds?.length) {
-        activeCitiesIds = Object.keys(DEFAULT_CITIES_IN_DRAWER).map(id => +id);
+        activeCitiesIds = Object.keys(DEFAULT_DRAWER_CITIES).map(id => +id);
     }
 
     useEffect(() => {

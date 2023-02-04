@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ALL_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
+import { DRAWER_CITIES, DRAWER_CITY_SVG_URL_MAP } from '@/modules/drawer/constants';
 import { Button, Divider, Drawer } from 'antd';
 import { CITY_NAMES } from '@/modules/city/constants';
 import { TCity } from '@/modules/city/types';
@@ -19,7 +19,7 @@ type DrawerComponentProps = {
 export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, isOpen, activeCitiesIds, submitSetActiveCities }) => {
     const [activeCities, setActiveCities] = useState<PropType<TCity, 'id'>[]>(activeCitiesIds);
     const dispatch: AppDispatch = useDispatch();
-    const anotherCitiesIds = Object.keys(ALL_CITIES_IN_DRAWER).filter((id) => {
+    const anotherCitiesIds = Object.keys(DRAWER_CITIES).filter((id) => {
         return !activeCitiesIds.find((el) => el === +id);
     }).map(id => +id);
     const [anotherCities, setAnotherCities] = useState<PropType<TCity, 'id'>[]>(anotherCitiesIds);
@@ -48,7 +48,10 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
                 <div style={{ marginLeft: -10 }}>
                     {
                         activeCities.map((cityId) => {
-                            return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddActiveCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
+                            return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddActiveCity(cityId)}>
+                                <span>{CITY_NAMES[cityId]}</span>
+                                <img className={styles.buttonImage} src={DRAWER_CITY_SVG_URL_MAP[cityId]} alt={'flag'} />
+                            </Button>;
                         })
                     }
                 </div>
@@ -57,7 +60,10 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
             <h4 style={{ marginBottom: 10 }}>Неактивные города</h4>
             {
                 anotherCities.map((cityId) => {
-                    return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddAnotherCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
+                    return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddAnotherCity(cityId)}>
+                        <span>{CITY_NAMES[cityId]}</span>
+                        <img className={styles.buttonImage} src={DRAWER_CITY_SVG_URL_MAP[cityId]} alt={'flag'} />
+                    </Button>;
                 })
             }
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

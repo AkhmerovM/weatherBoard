@@ -2,7 +2,7 @@ import { CITY_DRAWER } from '@/modules/drawer/types';
 import { PropType } from '@/modules/common/types';
 import { TCity } from '@/modules/city/types';
 
-export const ALL_CITIES_IN_DRAWER: {
+export const DRAWER_CITIES: {
     [key: PropType<TCity, 'id'>]: CITY_DRAWER
 } = {
     1496990: {
@@ -47,7 +47,7 @@ export const ALL_CITIES_IN_DRAWER: {
     }
 };
 
-export const DEFAULT_CITIES_IN_DRAWER: {
+export const DEFAULT_DRAWER_CITIES: {
     [key: PropType<TCity, 'id'>]: CITY_DRAWER
 } = {
     1496990: { name: 'Novokuznetsk', id: 1496990 },
@@ -60,4 +60,16 @@ export const DEFAULT_CITIES_IN_DRAWER: {
         name: 'Tomsk',
         id: 1489425
     }
+};
+export const DRAWER_CITY_SVG_URL_MAP: {[key: number] : string} = {
+    1496990: '/images/flags/germany.svg',
+    473249: '/images/flags/russia.svg',
+    1489425: '/images/flags/russia.svg',
+    551487: '/images/flags/russia.svg',
+    2034340: '/images/flags/russia.svg',
+    498817: '/images/flags/russia.svg',
+    524901: '/images/flags/russia.svg',
+    3067696: '/images/flags/czech.svg',
+    2950159: '/images/flags/germany.svg',
+    658225: '/images/flags/finland.svg'
 };
