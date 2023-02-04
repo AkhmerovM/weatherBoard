@@ -52,12 +52,12 @@ export const DEFAULT_CITIES_IN_DRAWER: {
 } = {
     1496990: { name: 'Novokuznetsk', id: 1496990 },
     473249: { name: 'Vladikavkaz', id: 473249 },
-    1489425: {
-        name: 'Tomsk',
-        id: 1489425
-    },
     551487: {
         name: 'Kazan’',
         id: 551487
+    },
+    1489425: {
+        name: 'Tomsk',
+        id: 1489425
     }
 };

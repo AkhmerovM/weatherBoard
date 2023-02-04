@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ALL_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
 import { Button, Divider, Drawer } from 'antd';
 import { CITY_NAMES } from '@/modules/city/constants';
 import { TCity } from '@/modules/city/types';
 import { PropType } from '@/modules/common/types';
-import { drawerActions } from '@/modules/drawer/slice';
 import { AppDispatch } from '@/store/store';
 import { useDispatch } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
+import styles from './style.less';
 
 type DrawerComponentProps = {
     handleClose: () => void,
@@ -25,10 +25,6 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
     const [anotherCities, setAnotherCities] = useState<PropType<TCity, 'id'>[]>(anotherCitiesIds);
     const [isChanged, setIsChanged] = useState(false);
 
-    useEffect(() => {
-        dispatch(drawerActions.set(activeCitiesIds));
-    }, []);
-
     const handleAddAnotherCity = (cityId: PropType<TCity, 'id'>) => {
         setActiveCities(activeCities.concat(cityId));
         setAnotherCities(anotherCities.filter((id) => cityId !== id));
@@ -40,7 +36,6 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
         setIsChanged(true);
     };
     const handleSetActiveCities = () => {
-        dispatch(drawerActions.set(activeCities));
         submitSetActiveCities();
         LocalStorageService.set('cities', activeCities);
         dispatch(fetchCities(activeCities));
@@ -53,7 +48,7 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
                 <div style={{ marginLeft: -10 }}>
                     {
                         activeCities.map((cityId) => {
-                            return <Button style={{ marginLeft: 10, marginBottom: 10 }} key={cityId} onClick={() => handleAddActiveCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
+                            return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddActiveCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
                         })
                     }
                 </div>
@@ -62,11 +57,11 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
             <h4 style={{ marginBottom: 10 }}>Неактивные города</h4>
             {
                 anotherCities.map((cityId) => {
-                    return <Button style={{ marginLeft: 10, marginBottom: 10 }} key={cityId} onClick={() => handleAddAnotherCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
+                    return <Button className={styles.buttonCityName} key={cityId} onClick={() => handleAddAnotherCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
                 })
             }
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Button type={'primary'} disabled={!isChanged} onClick={handleSetActiveCities}>Save</Button>
+                <Button className={styles.buttonSubmit} type={'primary'} disabled={!isChanged} onClick={handleSetActiveCities}>Save</Button>
             </div>
         </Drawer>
     );
