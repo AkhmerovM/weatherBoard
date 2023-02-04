@@ -12,10 +12,10 @@ import { Header } from '@/modules/city/components/Header';
 import { DrawerComponent } from '@/modules/drawer/components/DrawerComponent';
 import { DEFAULT_CITIES_IN_DRAWER } from '@/modules/drawer/constants';
 import { selectActiveCitiesIds } from '@/modules/drawer/selectors';
-import {LocalStorageService} from "@/modules/drawer/services/localStorage";
+import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 
 export function WeatherBoard () {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const dispatch: AppDispatch = useDispatch();
     const { data: cities, error, moduleState } = useSelectCityState();
     let activeCitiesIds = useSelector(selectActiveCitiesIds);

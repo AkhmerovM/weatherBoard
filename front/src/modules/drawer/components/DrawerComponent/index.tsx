@@ -8,7 +8,7 @@ import { drawerActions } from '@/modules/drawer/slice';
 import { AppDispatch } from '@/store/store';
 import { useDispatch } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
-import {LocalStorageService} from "@/modules/drawer/services/localStorage";
+import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 
 type DrawerComponentProps = {
     handleClose: () => void,
@@ -47,26 +47,25 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = ({ handleClose, i
     };
 
     return (
-        <Drawer title="Basic Drawer" placement="right" onClose={handleClose} open={isOpen}>
+        <Drawer title="Города мира" placement="right" onClose={handleClose} open={isOpen}>
             <div>
-                <div>Active Cities</div>
-                {
-                    activeCities.map((cityId) => {
-                        return <span style={{ marginLeft: 10 }}>
-                            <Button key={cityId} onClick={() => handleAddActiveCity(cityId)}>{CITY_NAMES[cityId]}</Button>
-                        </span>;
-                    })
-                }
+                <h4 style={{ marginBottom: 10 }}>Активные города</h4>
+                <div style={{ marginLeft: -10 }}>
+                    {
+                        activeCities.map((cityId) => {
+                            return <Button style={{ marginLeft: 10, marginBottom: 10 }} key={cityId} onClick={() => handleAddActiveCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
+                        })
+                    }
+                </div>
             </div>
             <Divider/>
+            <h4 style={{ marginBottom: 10 }}>Неактивные города</h4>
             {
                 anotherCities.map((cityId) => {
-                    return <span style={{ marginLeft: 10 }}>
-                        <Button key={cityId} onClick={() => handleAddAnotherCity(cityId)}>{CITY_NAMES[cityId]}</Button>
-                    </span>;
+                    return <Button style={{ marginLeft: 10, marginBottom: 10 }} key={cityId} onClick={() => handleAddAnotherCity(cityId)}>{CITY_NAMES[cityId]}</Button>;
                 })
             }
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button type={'primary'} disabled={!isChanged} onClick={handleSetActiveCities}>Save</Button>
             </div>
         </Drawer>
