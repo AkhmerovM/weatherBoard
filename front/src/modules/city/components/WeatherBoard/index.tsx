@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './style.less';
 import { SunLoader } from '@/modules/city/components/SunLoader';
 import { useSelectCityState } from '@/modules/city/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchCities } from '@/modules/city/api';
 import { AppDispatch } from '@/store/store';
 import { CitiesContainer } from '@/modules/city/components/CitiesContainer/CitiesContainer';

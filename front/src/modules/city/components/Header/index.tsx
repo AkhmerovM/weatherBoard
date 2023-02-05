@@ -10,7 +10,7 @@ type HeaderProps = {
     activeCitiesIds: PropType<TCity, 'id'>[]
 }
 export const Header: React.FC<HeaderProps> = ({ activeCitiesIds }) => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const handleOpen = useCallback(() => {
         setOpen(true);
