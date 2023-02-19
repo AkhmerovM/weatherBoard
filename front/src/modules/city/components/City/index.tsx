@@ -6,7 +6,7 @@ import { CITY_NAMES } from '@/modules/city/constants';
 import { getWeatherIconsStyleClasses } from '@/modules/city/components/City/utils';
 import { AnimationWeatherSwitcher } from '@/modules/city/components/AnimationWeatherSwitcher';
 import { Slider } from '@/modules/city/components/Slider';
-import {DRAWER_CITY_SVG_URL_MAP} from "@/modules/drawer/constants";
+import { DRAWER_CITY_SVG_URL_MAP } from '@/modules/drawer/constants';
 type TProps = {
     city: TCity,
 }

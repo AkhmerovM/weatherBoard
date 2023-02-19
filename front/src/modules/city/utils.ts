@@ -15,7 +15,7 @@ export function getCityImgUrl (name: CITY_URL_NAMES): string {
 export function formatTemperatureDegree (temperature: number): string {
     let str = temperature.toString();
     if (temperature < 0) {
-        str = `-${temperature}`;
+        str = temperature.toString();
     }
     if (temperature > 0) {
         str = `+${temperature}`;
