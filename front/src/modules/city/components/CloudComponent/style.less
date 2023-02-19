@@ -16,7 +16,7 @@
 }
 .cloud img {
   width: 100%;
-  left: 0;
+  left: 100%;
   top: 20px;
   position: absolute;
   -webkit-user-select: none;
@@ -27,50 +27,40 @@
 }
 @-webkit-keyframes animCloud {
   from {
-    -webkit-transform: translateX(100%)
+    -webkit-transform: translateX(0%)
   }
   to {
-    -webkit-transform: translateX(-100%)
+    -webkit-transform: translateX(-200%)
   }
 }
 @-moz-keyframes animCloud {
   from {
-    -moz-transform: translateX(100%)
+    -moz-transform: translateX(0%)
   }
   to {
-    -moz-transform: translateX(-100%)
+    -moz-transform: translateX(-200%)
   }
 }
 @keyframes animCloud {
   from {
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    -o-transform: translateX(100%);
-    transform: translateX(100%)
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%)
   }
   to {
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%)
+    -webkit-transform: translateX(-200%);
+    -moz-transform: translateX(-200%);
+    -ms-transform: translateX(-200%);
+    -o-transform: translateX(-200%);
+    transform: translateX(-200%)
   }
 }
 .cloud1 {
   -webkit-animation: animCloud 20s infinite linear;
   -moz-animation: animCloud 20s infinite linear;
   animation: animCloud 20s infinite linear
-}
-.cloud2 {
-  -webkit-animation: animCloud 40s infinite linear;
-  -moz-animation: animCloud 40s infinite linear;
-  animation: animCloud 40s infinite linear
-}
-.cloud3 {
-  -webkit-animation: animCloud 60s infinite linear;
-  -moz-animation: animCloud 60s infinite linear;
-  animation: animCloud 60s infinite linear
 }
 .cloud4 {
   -webkit-animation: animCloud 80s infinite linear;
