@@ -6,7 +6,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const paths = {
     public: path.resolve(__dirname, 'static'),
-    build: path.resolve(__dirname, 'static/build'),
+    build: path.resolve(__dirname, '../server/static/build'),
     src: path.resolve(__dirname, 'src')
 };
 
@@ -82,8 +82,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-                { from: path.resolve(__dirname, 'src/static/images'), to: path.resolve(__dirname, 'static/images') },
-                { from: path.resolve(__dirname, 'src/static/scripts'), to: path.resolve(__dirname, 'static/build') }
+                { from: path.resolve(__dirname, 'src/static/images'), to: path.resolve(__dirname, '../server/static/build/images') },
+                { from: path.resolve(__dirname, 'src/static/scripts'), to: path.resolve(__dirname, '../server/static/build') }
             ]
         }),
         new WriteFilePlugin()
