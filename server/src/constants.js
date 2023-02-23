@@ -13,3 +13,37 @@ export const cities = [
     { coord: { lon: 13.4105, lat: 52.5244 }, weather: [{ id: 800, main: 'Rain', description: 'clear sky', icon: '01d' }], base: 'stations', main: { temp: 21.71, feels_like: 21.09, temp_min: 20.01, temp_max: 22.82, pressure: 1016, humidity: 44 }, visibility: 10000, wind: { speed: 8.05, deg: 122, gust: 12.07 }, clouds: { all: 0 }, dt: 1662205923, sys: { type: 2, id: 2011538, country: 'DE', sunrise: 1662178824, sunset: 1662227497 }, timezone: 7200, id: 2950159, name: 'Berlin', cod: 200 },
     { coord: { lon: 24.9355, lat: 60.1695 }, weather: [{ id: 803, main: 'Clouds', description: 'broken clouds', icon: '04d' }], base: 'stations', main: { temp: 11.86, feels_like: 10.69, temp_min: 10.49, temp_max: 13.35, pressure: 1014, humidity: 61 }, visibility: 10000, wind: { speed: 6.17, deg: 310 }, clouds: { all: 75 }, dt: 1662205747, sys: { type: 2, id: 2036194, country: 'FI', sunrise: 1662175151, sunset: 1662225640 }, timezone: 10800, id: 658225, name: 'Helsinki', cod: 200 }
 ];
+export const getRandomWeather = () => {
+    const randomIndex = Math.ceil(Math.random() * Object.values(WEATHER_NAME).length) - 1;
+    const randomKey = Object.keys(WEATHER_NAME)[randomIndex];
+    const data = {};
+    switch (randomKey) {
+        case WEATHER_NAME.Clear: {
+            data.weather = { main: WEATHER_NAME.Clear, icon: "01d" };
+            data.main = { temp: Math.random() * 30 + 10 }
+            break;
+        }
+        case WEATHER_NAME.Rain: {
+            data.weather = { main: WEATHER_NAME.Rain, icon: "11d" };
+            data.main = { temp: Math.random() * 15 + 5 }
+            break;
+        }
+        case WEATHER_NAME.Clouds: {
+            data.weather = { main: WEATHER_NAME.Clouds, icon: "04d" };
+            data.main = { temp: Math.random() * 10 + 10 }
+            break;
+        }
+        case WEATHER_NAME.Snow: {
+            data.weather = { main: WEATHER_NAME.Snow, icon: "13d" };
+            data.main = { temp: Math.random() * 5 -25 }
+            break;
+        }
+    }
+    return data;
+}
+const WEATHER_NAME  = {
+    Clouds: 'Clouds',
+    Rain: 'Rain',
+    Clear: 'Clear',
+    Snow: 'Snow',
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import {cities} from "./constants.js";
+import {cities, getRandomWeather} from "./constants.js";
 
 export const cityRouter = express.Router();
 
@@ -9,7 +9,11 @@ cityRouter.post('/', (req, res) => {
         const citiesIds = req.body.cities;
         const data = citiesIds.map((cityId) => {
             const city =  cities.find((city) => city.id === +cityId);
-            city.main.temp = Math.random() * 60 - 30;
+            const randomData = getRandomWeather();
+            city.main.temp = randomData.main.temp;
+            city.weather[0].main =   randomData.weather.main;
+            city.weather[0].icon = randomData.weather.icon;
+
             return city;
         })
         const response = {
