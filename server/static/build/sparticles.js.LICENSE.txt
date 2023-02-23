@@ -1,0 +1,6 @@
+/**!
+ * Sparticles - Lightweight, High Performance Particles in Canvas
+ * @version 0.9.0
+ * @license MPL-2.0
+ * @author simeydotme <simey.me@gmail.com>
+ */
