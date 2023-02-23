@@ -8,8 +8,14 @@ cityRouter.post('/', (req, res) => {
     setTimeout(() => {
         const citiesIds = req.body.cities;
         const data = citiesIds.map((cityId) => {
-            return cities.find((city) => city.id === +cityId);
+            const city =  cities.find((city) => city.id === +cityId);
+            city.main.temp = Math.random() * 60 - 30;
+            return city;
         })
-        res.send(data);
+        const response = {
+            cities: data,
+            requestTime: new Date().getTime()
+        }
+        res.send(response);
     }, delay);
 });

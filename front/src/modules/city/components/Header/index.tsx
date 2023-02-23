@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ activeCitiesIds }) => {
         <div className={styles.wrapper}>
             <div className={styles.title}>weatherBoard</div>
             <div className={styles.buttonContainer}>
-                <Button type={'ghost'} className={styles.menuButton} icon={<MenuOutlined />} onClick={handleOpen}></Button>
+                <Button type={'ghost'} className={styles.menuButton} icon={<MenuOutlined/>} onClick={handleOpen}/>
             </div>
             <DrawerComponent submitSetActiveCities={handleClose} activeCitiesIds={activeCitiesIds} handleClose={handleClose} isOpen={open} />
         </div>

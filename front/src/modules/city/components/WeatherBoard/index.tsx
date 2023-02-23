@@ -11,10 +11,11 @@ import { ModuleState } from '@/store/types';
 import { Header } from '@/modules/city/components/Header';
 import { DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
+import { PollComponent } from '@/modules/city/components/PollComponent';
 
 export function WeatherBoard () {
     const dispatch: AppDispatch = useDispatch();
-    const { data: cities, error, moduleState } = useSelectCityState();
+    const { data: { cities, requestTime }, error, moduleState } = useSelectCityState();
     let activeCitiesIds = LocalStorageService.get('cities');
 
     if (!activeCitiesIds?.length) {
@@ -42,8 +43,9 @@ export function WeatherBoard () {
         <div className={styles.weatherBoard}>
             <Header activeCitiesIds={activeCitiesIds} />
             <div className={styles.wrapper}>
-                <CitiesContainer cities={cities}/>
+                <CitiesContainer requestTime={requestTime} cities={cities} />
             </div>
+            <PollComponent activeCitiesIds={activeCitiesIds}/>
         </div>
     );
 }
