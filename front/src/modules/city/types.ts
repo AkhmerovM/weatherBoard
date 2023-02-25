@@ -15,6 +15,7 @@ export enum CITY_NAME {
     'Sydney' = 'Sydney',
     'Almaty' = 'Helsinki',
     'Buenos Aires' = 'Buenos Aires',
+    'Colombo' = 'Colombo',
 }
 
 export type CITY_URL_NAMES = `${keyof typeof CITY_NAME}${SLIDER_IMAGE_VALUES}`;

@@ -61,6 +61,10 @@ export const DRAWER_CITIES: {
         name: 'Lisbon',
         id: 2267057
     },
+    1248991: {
+        name: 'Colombo',
+        id: 1248991
+    }
 };
 
 export const DEFAULT_DRAWER_CITIES: {
@@ -91,5 +95,6 @@ export const DRAWER_CITY_SVG_URL_MAP: {[key: number] : string} = {
     2267057: '/images/flags/portugal.svg',
     2147714: '/images/flags/austallia.svg',
     1526384: '/images/flags/kazakhstan.svg',
-    3435910: '/images/flags/argentina.svg'
+    3435910: '/images/flags/argentina.svg',
+    1248991: '/images/flags/sri.svg'
 };

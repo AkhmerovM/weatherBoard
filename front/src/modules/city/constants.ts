@@ -44,6 +44,9 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     Sydney1: '/images/cities/sydney/sydney1.jpeg',
     Sydney2: '/images/cities/sydney/sydney2.jpeg',
     Sydney3: '/images/cities/sydney/sydney3.jpeg',
+    Colombo1: '/images/cities/colombo/colombo1.jpeg',
+    Colombo2: '/images/cities/colombo/colombo2.png',
+    Colombo3: '/images/cities/colombo/colombo3.jpeg',
     default: '/images/cities/moscow/moscow1.jpeg'
 };
 
@@ -61,5 +64,6 @@ export const CITY_NAMES: {[key: PropType<TCity, 'id'>]: string} = {
     2267057: 'Лиссабон',
     2147714: 'Сидней',
     1526384: 'Алма-ата',
-    3435910: 'Буэнос-Айрес'
+    3435910: 'Буэнос-Айрес',
+    1248991: 'Коломбо'
 };

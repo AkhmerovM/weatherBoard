@@ -25,7 +25,6 @@ export class City extends React.Component<TProps, TState> {
     }
 
     static getDerivedStateFromProps (props: TProps, state: TState): TState {
-        console.log('timer');
         if (props.requestTime - state.time > 1000) {
             console.log(props.requestTime - state.time > 1000);
             return {
