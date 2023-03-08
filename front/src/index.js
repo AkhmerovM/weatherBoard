@@ -8,5 +8,5 @@ if (!root) {
 }
 const rootRender = ReactDom.createRoot(root);
 rootRender.render(
-        <App />
+    <App />
 );
