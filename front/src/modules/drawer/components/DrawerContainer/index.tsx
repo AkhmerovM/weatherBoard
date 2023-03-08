@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { DRAWER_CITIES } from '@/modules/drawer/constants';
 import { Button, Divider } from 'antd';
 import { TCity } from '@/modules/city/types';
@@ -25,22 +25,21 @@ export const DrawerContainer: React.FC<DrawerContainerProps> = ({ activeCitiesId
     const [anotherCities, setAnotherCities] = useState<PropType<TCity, 'id'>[]>(anotherCitiesIds);
     const [isChanged, setIsChanged] = useState(false);
 
-
-    const handleAddAnotherCity = (cityId: PropType<TCity, 'id'>) => {
+    const handleAddAnotherCity = useCallback((cityId: PropType<TCity, 'id'>) => {
         setActiveCities(activeCities.concat(cityId));
         setAnotherCities(anotherCities.filter((id) => cityId !== id));
         setIsChanged(true);
-    };
-    const handleAddActiveCity = (cityId: PropType<TCity, 'id'>) => {
+    }, [activeCities, anotherCities]);
+    const handleAddActiveCity = useCallback((cityId: PropType<TCity, 'id'>) => {
         setAnotherCities(anotherCities.concat(cityId));
         setActiveCities(activeCities.filter((id) => cityId !== id));
         setIsChanged(true);
-    };
-    const handleSetActiveCities = () => {
+    }, [anotherCities, activeCities]);
+    const handleSetActiveCities = useCallback(() => {
         submitSetActiveCities();
         LocalStorageService.set('cities', activeCities);
         dispatch(fetchCities(activeCities));
-    };
+    }, [submitSetActiveCities, activeCities]);
 
     return (
         <>

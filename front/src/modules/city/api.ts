@@ -1,4 +1,4 @@
-import { Action, Dispatch } from '@reduxjs/toolkit';
+import { Dispatch } from '@reduxjs/toolkit';
 import { cityActions } from '@/modules/city/slice';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { ModuleState } from '@/store/types';
@@ -20,7 +20,6 @@ export const pollCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch:
             if (response.statusText === 'OK') {
                 dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
             } else {
-                console.log(response);
                 throw new Error(response.statusText);
             }
         } catch (error: unknown) {

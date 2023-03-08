@@ -93,7 +93,7 @@ export const DRAWER_CITY_SVG_URL_MAP: {[key: number] : string} = {
     2950159: '/images/flags/germany.svg',
     658225: '/images/flags/finland.svg',
     2267057: '/images/flags/portugal.svg',
-    2147714: '/images/flags/austallia.svg',
+    2147714: '/images/flags/australia.svg',
     1526384: '/images/flags/kazakhstan.svg',
     3435910: '/images/flags/argentina.svg',
     1248991: '/images/flags/sri.svg'
