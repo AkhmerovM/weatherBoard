@@ -10,7 +10,7 @@ export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch
         try {
             dispatch(cityActions.startLoadingCities());
 
-            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cities: activeCitiesIds });
+            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cityIds: activeCitiesIds });
             if (response.statusText === 'OK') {
                 return dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
             } else {
@@ -20,6 +20,23 @@ export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch
         } catch (error: unknown) {
             if (error instanceof AxiosError || error instanceof Error) {
                 return dispatch(cityActions.loadCities({ data: null, error, moduleState: ModuleState.error }));
+            }
+        }
+    };
+};
+export const pollCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: Dispatch) => Promise<Action> => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cityIds });
+            if (response.statusText === 'OK') {
+                return dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
+            } else {
+                console.log(response);
+                throw new Error(response.statusText);
+            }
+        } catch (error: unknown) {
+            if (error instanceof AxiosError || error instanceof Error) {
+                dispatch(cityActions.loadCities({ data: null, error, moduleState: ModuleState.error }));
             }
         }
     };
