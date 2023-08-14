@@ -4,12 +4,13 @@ import styles from './style.less';
 
 import { TCity } from '@/modules/city/types';
 type CitiesContainerProps = {
-    cities: TCity[]
+    cities: TCity[],
+    requestTime: number
 }
-export const CitiesContainer: React.FC<CitiesContainerProps> = ({ cities }) => {
+export const CitiesContainer: React.FC<CitiesContainerProps> = ({ cities, requestTime }) => {
     return <div className={styles.container}>
         {cities.map((city, i) => {
-            return (<City key={i} city={city}/>);
+            return (<City requestTime={requestTime} key={i} city={city}/>);
         })}
     </div>;
 };

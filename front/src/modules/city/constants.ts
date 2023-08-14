@@ -32,6 +32,21 @@ export const CITY_IMAGE_URL_MAP: CITY_URL = {
     Helsinki1: '/images/cities/helsinki/helsinki1.jpg',
     Helsinki2: '/images/cities/helsinki/helsinki2.png',
     Helsinki3: '/images/cities/helsinki/helsinki3.jpg',
+    Lisbon1: '/images/cities/lisbon/lisbon1.jpeg',
+    Lisbon2: '/images/cities/lisbon/lisbon2.jpeg',
+    Lisbon3: '/images/cities/lisbon/lisbon3.jpeg',
+    Almaty1: '/images/cities/almaty/almaty1.jpeg',
+    Almaty2: '/images/cities/almaty/almaty2.png',
+    Almaty3: '/images/cities/almaty/almaty3.png',
+    'Buenos Aires1': '/images/cities/buenos/buenos1.jpeg',
+    'Buenos Aires2': '/images/cities/buenos/buenos2.jpeg',
+    'Buenos Aires3': '/images/cities/buenos/buenos3.jpeg',
+    Sydney1: '/images/cities/sydney/sydney1.jpeg',
+    Sydney2: '/images/cities/sydney/sydney2.jpeg',
+    Sydney3: '/images/cities/sydney/sydney3.jpeg',
+    Colombo1: '/images/cities/colombo/colombo1.jpeg',
+    Colombo2: '/images/cities/colombo/colombo2.png',
+    Colombo3: '/images/cities/colombo/colombo3.jpeg',
     default: '/images/cities/moscow/moscow1.jpeg'
 };
 
@@ -45,5 +60,10 @@ export const CITY_NAMES: {[key: PropType<TCity, 'id'>]: string} = {
     524901: 'Москва',
     3067696: 'Прага',
     2950159: 'Берлин',
-    658225: 'Хельсинки'
+    658225: 'Хельсинки',
+    2267057: 'Лиссабон',
+    2147714: 'Сидней',
+    1526384: 'Алма-ата',
+    3435910: 'Буэнос-Айрес',
+    1248991: 'Коломбо'
 };

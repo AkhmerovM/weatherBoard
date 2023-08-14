@@ -10,7 +10,12 @@ export enum CITY_NAME {
     'Tomsk' = 'Tomsk',
     'Berlin' = 'Berlin',
     'Prague' = 'Prague',
-    'Helsinki' = 'Helsinki'
+    'Helsinki' = 'Helsinki',
+    'Lisbon' = 'Lisbon',
+    'Sydney' = 'Sydney',
+    'Almaty' = 'Helsinki',
+    'Buenos Aires' = 'Buenos Aires',
+    'Colombo' = 'Colombo',
 }
 
 export type CITY_URL_NAMES = `${keyof typeof CITY_NAME}${SLIDER_IMAGE_VALUES}`;

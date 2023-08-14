@@ -12,13 +12,11 @@ import { Header } from '@/modules/city/components/Header';
 import { DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 import { PollingComponent } from '@/modules/common/components/PollingComponent';
-import { TCity } from '@/modules/city/types';
-import { PropType } from '@/modules/common/types';
 
 export function WeatherBoard () {
     const dispatch: AppDispatch = useDispatch();
-    const { data: cities, error, moduleState } = useSelectCityState();
-    let activeCitiesIds: PropType<TCity, 'id'>[] = LocalStorageService.get('cities');
+    const { data: { cities, requestTime }, error, moduleState } = useSelectCityState();
+    let activeCitiesIds = LocalStorageService.get('cityIds');
 
     if (!activeCitiesIds?.length) {
         activeCitiesIds = Object.keys(DEFAULT_DRAWER_CITIES).map(id => +id);
@@ -45,7 +43,7 @@ export function WeatherBoard () {
         <div className={styles.weatherBoard}>
             <Header activeCitiesIds={activeCitiesIds} />
             <div className={styles.wrapper}>
-                <CitiesContainer cities={cities}/>
+                <CitiesContainer requestTime={requestTime} cities={cities} />
             </div>
             <PollingComponent cityIds={activeCitiesIds} />
         </div>

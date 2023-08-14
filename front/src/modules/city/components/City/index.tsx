@@ -9,6 +9,7 @@ import { Slider } from '@/modules/city/components/Slider';
 import { DRAWER_CITY_SVG_URL_MAP } from '@/modules/drawer/constants';
 type TProps = {
     city: TCity,
+    requestTime: number
 }
 type TState = {
     time: number,
@@ -19,8 +20,18 @@ export class City extends React.Component<TProps, TState> {
     constructor (props: TProps) {
         super(props);
         this.state = {
-            time: new Date().getTime()
+            time: this.props.requestTime
         };
+    }
+
+    static getDerivedStateFromProps (props: TProps, state: TState): TState {
+        if (props.requestTime - state.time > 1000) {
+            console.log(props.requestTime - state.time > 1000);
+            return {
+                time: props.requestTime
+            };
+        }
+        return null;
     }
 
     componentDidMount () {
@@ -44,7 +55,7 @@ export class City extends React.Component<TProps, TState> {
         const formattedTime = getTimeZoneTime(time, timezone);
         return <div className={styles.wrapper}>
             <div className={styles.bg}>
-                <Slider name={name} ></Slider>
+                <Slider name={name} />
             </div>
             <div className={styles.container} >
                 <AnimationWeatherSwitcher weatherName={weatherName} />

@@ -3,7 +3,10 @@ import { TCity } from './types';
 import { ModuleState } from '@/store/types';
 
 export type CityState = {
-    data: TCity[],
+    data: {
+        cities: TCity[],
+        requestTime: number
+    },
     error: Error,
     moduleState: ModuleState
 }
@@ -14,7 +17,10 @@ type CityCaseReducers = {
 export const citySlice = createSlice<CityState, CityCaseReducers>({
     name: 'city',
     initialState: {
-        data: [],
+        data: {
+            cities: [],
+            requestTime: 0
+        },
         error: null,
         moduleState: ModuleState.initial
     },

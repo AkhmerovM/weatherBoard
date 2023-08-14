@@ -1,20 +1,20 @@
-import { Action, Dispatch } from '@reduxjs/toolkit';
+import { Action } from '@reduxjs/toolkit';
 import { cityActions } from '@/modules/city/slice';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { ModuleState } from '@/store/types';
 import { PropType } from '@/modules/common/types';
 import { TCity } from '@/modules/city/types';
+import { AppDispatch } from '@/store/store';
 
-export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch: Dispatch) => Promise<Action> => {
-    return async (dispatch: Dispatch) => {
+export const fetchCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: AppDispatch) => Promise<Action> => {
+    return async (dispatch: AppDispatch) => {
         try {
             dispatch(cityActions.startLoadingCities());
 
-            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cityIds: activeCitiesIds });
+            const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cityIds });
             if (response.statusText === 'OK') {
                 return dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
             } else {
-                console.log(response);
                 throw new Error(response.statusText);
             }
         } catch (error: unknown) {
@@ -24,8 +24,8 @@ export const fetchCities = (activeCitiesIds: PropType<TCity, 'id'>[]): (dispatch
         }
     };
 };
-export const pollCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: Dispatch) => Promise<Action> => {
-    return async (dispatch: Dispatch) => {
+export const pollCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: AppDispatch) => Promise<Action> => {
+    return async (dispatch: AppDispatch) => {
         try {
             const response: AxiosResponse = await axios.post('http://localhost:8090/cities', { cityIds });
             if (response.statusText === 'OK') {
