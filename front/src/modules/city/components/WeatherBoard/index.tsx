@@ -9,14 +9,14 @@ import { CitiesContainer } from '@/modules/city/components/CitiesContainer/Citie
 import { ErrorComponent } from '@/modules/city/components/ErrorComponent';
 import { ModuleState } from '@/store/types';
 import { Header } from '@/modules/city/components/Header';
-import { DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
+import { CITY_IDS_LS, DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 import { PollingComponent } from '@/modules/common/components/PollingComponent';
 
 export function WeatherBoard () {
     const dispatch: AppDispatch = useDispatch();
     const { data: { cities, requestTime }, error, moduleState } = useSelectCityState();
-    let activeCitiesIds = LocalStorageService.get('cityIds');
+    let activeCitiesIds = LocalStorageService.get(CITY_IDS_LS);
 
     if (!activeCitiesIds?.length) {
         activeCitiesIds = Object.keys(DEFAULT_DRAWER_CITIES).map(id => +id);

@@ -1,7 +1,7 @@
 import { CITY_DRAWER } from '@/modules/drawer/types';
 import { PropType } from '@/modules/common/types';
 import { TCity } from '@/modules/city/types';
-
+export const CITY_IDS_LS = 'cityIds';
 export const DRAWER_CITIES: {
     [key: PropType<TCity, 'id'>]: CITY_DRAWER
 } = {

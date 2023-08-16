@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { DRAWER_CITIES } from '@/modules/drawer/constants';
+import {CITY_IDS_LS, DRAWER_CITIES} from '@/modules/drawer/constants';
 import { Button, Divider } from 'antd';
 import { TCity } from '@/modules/city/types';
 import { PropType } from '@/modules/common/types';
@@ -37,7 +37,7 @@ export const DrawerContainer: React.FC<DrawerContainerProps> = ({ activeCitiesId
     }, [anotherCities, activeCities]);
     const handleSetActiveCities = useCallback(() => {
         submitSetActiveCities();
-        LocalStorageService.set('cityIds', activeCities);
+        LocalStorageService.set(CITY_IDS_LS, activeCities);
         dispatch(fetchCities(activeCities));
     }, [submitSetActiveCities, activeCities]);
 
