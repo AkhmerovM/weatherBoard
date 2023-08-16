@@ -5,7 +5,7 @@ import { TCity } from '@/modules/city/types';
 import { PropType } from '@/modules/common/types';
 import { AppDispatch } from '@/store/store';
 import { useDispatch } from 'react-redux';
-import { fetchCities } from '@/modules/city/api';
+import {getCities} from '@/modules/city/api';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
 import styles from './style.less';
 import { DrawerCitiesContainer } from '@/modules/drawer/components/DrawerCitiesContainer';
@@ -38,7 +38,7 @@ export const DrawerContainer: React.FC<DrawerContainerProps> = ({ activeCitiesId
     const handleSetActiveCities = useCallback(() => {
         submitSetActiveCities();
         LocalStorageService.set(CITY_IDS_LS, activeCities);
-        dispatch(fetchCities(activeCities));
+        dispatch(getCities(activeCities));
     }, [submitSetActiveCities, activeCities]);
 
     return (

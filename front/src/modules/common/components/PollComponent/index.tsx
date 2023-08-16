@@ -2,7 +2,7 @@ import React from 'react';
 import { PropType } from '@/modules/common/types';
 import { TCity } from '@/modules/city/types';
 import { connect } from 'react-redux';
-import { pollCities } from '@/modules/city/api';
+import {fetchCities} from '@/modules/city/api';
 import { AppDispatch } from '@/store/store';
 
 type PollingComponentProps = {
@@ -11,14 +11,14 @@ type PollingComponentProps = {
 }
 const mapDispatchToProps = (dispatch: AppDispatch) => {
     return {
-        tick: (cityIds: PropType<TCity, 'id'>[]) => dispatch(pollCities(cityIds))
+        tick: (cityIds: PropType<TCity, 'id'>[]) => dispatch(fetchCities(cityIds))
     };
 };
-export class Polling extends React.Component<PollingComponentProps> {
+export class Poll extends React.Component<PollingComponentProps> {
     private interval: NodeJS.Timer;
 
     componentDidMount () {
-        this.interval = setInterval(this.tick, 7000);
+        this.interval = setInterval(this.tick, 30000);
     }
 
     tick = () => {
@@ -34,4 +34,4 @@ export class Polling extends React.Component<PollingComponentProps> {
         return null;
     }
 }
-export const PollingComponent = connect(null, mapDispatchToProps)(Polling);
+export const PollComponent = connect(null, mapDispatchToProps)(Poll);

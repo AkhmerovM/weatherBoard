@@ -3,7 +3,7 @@ import styles from './style.less';
 import { SunLoader } from '@/modules/city/components/SunLoader';
 import { useSelectCityState } from '@/modules/city/selectors';
 import { useDispatch } from 'react-redux';
-import { fetchCities } from '@/modules/city/api';
+import {getCities} from '@/modules/city/api';
 import { AppDispatch } from '@/store/store';
 import { CitiesContainer } from '@/modules/city/components/CitiesContainer/CitiesContainer';
 import { ErrorComponent } from '@/modules/city/components/ErrorComponent';
@@ -11,7 +11,7 @@ import { ModuleState } from '@/store/types';
 import { Header } from '@/modules/city/components/Header';
 import { CITY_IDS_LS, DEFAULT_DRAWER_CITIES } from '@/modules/drawer/constants';
 import { LocalStorageService } from '@/modules/drawer/services/localStorage';
-import { PollingComponent } from '@/modules/common/components/PollingComponent';
+import {PollComponent} from '@/modules/common/components/PollComponent';
 
 export function WeatherBoard () {
     const dispatch: AppDispatch = useDispatch();
@@ -23,7 +23,7 @@ export function WeatherBoard () {
     }
 
     useEffect(() => {
-        dispatch(fetchCities(activeCitiesIds));
+        dispatch(getCities(activeCitiesIds));
     }, []);
 
     if (moduleState === ModuleState.error) {
@@ -45,7 +45,7 @@ export function WeatherBoard () {
             <div className={styles.wrapper}>
                 <CitiesContainer requestTime={requestTime} cities={cities} />
             </div>
-            <PollingComponent cityIds={activeCitiesIds} />
+            <PollComponent cityIds={activeCitiesIds} />
         </div>
     );
 }

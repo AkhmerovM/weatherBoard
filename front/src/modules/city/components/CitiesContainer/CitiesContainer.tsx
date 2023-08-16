@@ -33,7 +33,7 @@ export class CitiesContainer extends React.Component<TProps, TState> {
     }
 
     static getDerivedStateFromProps (props: TProps, state: TState): TState {
-        if (props.requestTime - state.time > 20000) {
+        if (props.requestTime - state.time > 30000) {
             return {
                 time: props.requestTime
             };
