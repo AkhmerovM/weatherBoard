@@ -99,3 +99,8 @@ export type TCity = {
         }
     ]
 }
+
+export type TCityResponse = {
+    cities: TCity[];
+    requestTime: number;
+};

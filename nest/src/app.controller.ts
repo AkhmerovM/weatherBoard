@@ -1,12 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { TCityResponse } from './types';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+	constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+	@HttpCode(200)
+	@Post('/cities')
+	async getCities(
+		@Body() data: { cityIds: number[] },
+	): Promise<TCityResponse> {
+		return this.appService.getCities(data.cityIds);
+	}
 }
