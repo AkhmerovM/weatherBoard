@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { TCityResponse } from './types';
+import { TCityRequest, TCityResponse } from './types';
 
 @Controller()
 export class AppController {
@@ -8,9 +8,7 @@ export class AppController {
 
 	@HttpCode(200)
 	@Post('/cities')
-	async getCities(
-		@Body() data: { cityIds: number[] },
-	): Promise<TCityResponse> {
+	async getCities(@Body() data: TCityRequest): Promise<TCityResponse> {
 		return this.appService.getCities(data.cityIds);
 	}
 }

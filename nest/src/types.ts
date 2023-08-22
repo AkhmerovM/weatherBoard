@@ -104,3 +104,6 @@ export type TCityResponse = {
 	cities: TCity[];
 	requestTime: number;
 };
+export type TCityRequest = {
+	cityIds: number[];
+};

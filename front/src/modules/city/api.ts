@@ -1,9 +1,9 @@
-import {Action, PayloadAction} from '@reduxjs/toolkit';
-import {cityActions, CityState} from '@/modules/city/slice';
+import { PayloadAction } from '@reduxjs/toolkit';
+import { cityActions, CityState } from '@/modules/city/slice';
 import { AxiosError, AxiosResponse } from 'axios';
 import { ModuleState } from '@/store/types';
 import { PropType } from '@/modules/common/types';
-import {TCity, TCityResponse} from '@/modules/city/types';
+import { TCity, TCityResponse } from '@/modules/city/types';
 import { AppDispatch } from '@/store/store';
 import { axiosInstance } from '@/modules/common/config/axios';
 

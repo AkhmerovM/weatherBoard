@@ -20,8 +20,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 			inject: [ConfigService],
 		}),
 		HttpModule,
+		ConfigModule,
 	],
 	controllers: [AppController],
-	providers: [AppService, ConfigService],
+	providers: [AppService],
 })
 export class AppModule {}

@@ -18,7 +18,7 @@ export class Poll extends React.Component<PollingComponentProps> {
     private interval: NodeJS.Timer;
 
     componentDidMount () {
-        this.interval = setInterval(this.tick, 30000);
+        this.interval = setInterval(this.tick, 10000);
     }
 
     tick = () => {
