@@ -1,5 +1,6 @@
 export const ROUTES = {
-    city: '/cities'
+    city: '/cities',
+    front: '/front',
 };
 export const cities = [
     {"coord":{"lon":87.1099,"lat":53.7557},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":-2.67,"feels_like":-2.67,"temp_min":-2.67,"temp_max":-2.67,"pressure":1029,"humidity":63,"sea_level":1029,"grnd_level":1003},"visibility":10000,"wind":{"speed":1.21,"deg":212,"gust":1.82},"clouds":{"all":100},"dt":1676792763,"sys":{"type":2,"id":69385,"country":"RU","sunrise":1676769837,"sunset":1676806037},"timezone":25200,"id":1496990,"name":"Novokuznetsk","cod":200},
