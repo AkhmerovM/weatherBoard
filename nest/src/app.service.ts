@@ -15,8 +15,8 @@ export class AppService implements OnApplicationBootstrap {
 	) {}
 	onApplicationBootstrap(): void {
 		setInterval(() => {
-			// this.loadCities();
-		}, 30000);
+			this.loadCities();
+		}, 60000);
 	}
 	async getCities(cityIds: number[]): Promise<TCityResponse> {
 		const cities: TCity[] = [];
