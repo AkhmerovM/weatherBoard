@@ -6,6 +6,8 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { HttpModule } from '@nestjs/axios';
 import { redisStore } from 'cache-manager-redis-yet';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
 	imports: [
@@ -18,6 +20,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 				ttl: 5000,
 			}),
 			inject: [ConfigService],
+		}),
+		ServeStaticModule.forRoot({
+			rootPath: join(__dirname, '../..', 'front/static'),
 		}),
 		HttpModule,
 		ConfigModule,

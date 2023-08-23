@@ -82,19 +82,19 @@ export const DEFAULT_DRAWER_CITIES: {
     }
 };
 export const DRAWER_CITY_SVG_URL_MAP: {[key: number] : string} = {
-    1496990: '/images/flags/russia.svg',
-    473249: '/images/flags/russia.svg',
-    1489425: '/images/flags/russia.svg',
-    551487: '/images/flags/russia.svg',
-    2034340: '/images/flags/russia.svg',
-    498817: '/images/flags/russia.svg',
-    524901: '/images/flags/russia.svg',
-    3067696: '/images/flags/czech.svg',
-    2950159: '/images/flags/germany.svg',
-    658225: '/images/flags/finland.svg',
-    2267057: '/images/flags/portugal.svg',
-    2147714: '/images/flags/australia.svg',
-    1526384: '/images/flags/kazakhstan.svg',
-    3435910: '/images/flags/argentina.svg',
-    1248991: '/images/flags/sri.svg'
+    1496990: '/assets/images/flags/russia.svg',
+    473249: '/assets/images/flags/russia.svg',
+    1489425: '/assets/images/flags/russia.svg',
+    551487: '/assets/images/flags/russia.svg',
+    2034340: '/assets/images/flags/russia.svg',
+    498817: '/assets/images/flags/russia.svg',
+    524901: '/assets/images/flags/russia.svg',
+    3067696: '/assets/images/flags/czech.svg',
+    2950159: '/assets/images/flags/germany.svg',
+    658225: '/assets/images/flags/finland.svg',
+    2267057: '/assets/images/flags/portugal.svg',
+    2147714: '/assets/images/flags/australia.svg',
+    1526384: '/assets/images/flags/kazakhstan.svg',
+    3435910: '/assets/images/flags/argentina.svg',
+    1248991: '/assets/images/flags/sri.svg'
 };
