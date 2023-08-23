@@ -14,9 +14,9 @@ export const options = {
     float: 0.75,
     glow: 0,
     imageUrl: [
-        'images/snow/snow-2.svg',
-        'images/snow/snow-4.svg',
-        'images/snow/snow-6.svg'
+        '/assets/images/snow/snow-2.svg',
+        '/assets/images/snow/snow-4.svg',
+        '/assets/images/snow/snow-6.svg'
     ],
     maxAlpha: 2,
     maxSize: 12,

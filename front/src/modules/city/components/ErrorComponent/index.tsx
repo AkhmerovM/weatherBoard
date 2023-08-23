@@ -1,9 +1,9 @@
 import styles from './style.less';
 import React from 'react';
-type ErrorComponentProps = {
+type TProps = {
     error: Error
 }
-export const ErrorComponent: React.FC<ErrorComponentProps> = ({ error }) => {
+export const ErrorComponent: React.FC<TProps> = ({ error }) => {
     return (
         <div className={styles.errorContainer}>
             <div>{error.name}</div>

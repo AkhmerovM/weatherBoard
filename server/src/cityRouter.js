@@ -6,7 +6,7 @@ export const cityRouter = express.Router();
 cityRouter.post('/', (req, res) => {
     const delay = 1000;
     setTimeout(() => {
-        const citiesIds = req.body.cities;
+        const citiesIds = req.body.cityIds;
         const data = citiesIds.map((cityId) => {
             const city =  cities.find((city) => city.id === +cityId);
             const randomData = getRandomWeather();
