@@ -39,13 +39,10 @@ export class AppService implements OnApplicationBootstrap {
 		};
 	}
 	async loadCities() {
-		console.log('1');
 		const apiKey = this.config.get('WEATHER_API_KEY');
 		const allIds = cities.map((city) => city.id);
-		console.log('2');
 		const promises = allIds.map(async (cityId) => {
 			const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&id=${cityId}&appid=${apiKey}`;
-			console.log(url);
 			const observable = await this.httpService.get(url);
 
 			observable.subscribe((axiosResponse) => {
@@ -60,6 +57,5 @@ export class AppService implements OnApplicationBootstrap {
 			.catch((e) => {
 				throw new Error(e);
 			});
-		console.log('=====================');
 	}
 }
