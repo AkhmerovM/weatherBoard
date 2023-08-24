@@ -7,4 +7,21 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build front
+        run: |
+          git status
+          cd front
+          npm i
+          npm run build
+          cd ../
+      - name: build nest
+        run: |
+          cd nest
+          npm i
+          npm run build
+          cd ../
+          
 
