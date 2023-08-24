@@ -52,7 +52,7 @@ export class AppService implements OnApplicationBootstrap {
 
 		await Promise.all(promises)
 			.then(() => {
-				console.log('finish requests');
+				console.log('finish requests', new Date());
 			})
 			.catch((e) => {
 				throw new Error(e);
