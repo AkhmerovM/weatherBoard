@@ -1,0 +1,10 @@
+services:
+  nest:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - WEATHER_API_KEY=100e66e41f8a9be5b589dcba614cc42e
+  redis:
+    image: redis

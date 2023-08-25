@@ -17,7 +17,7 @@ export const getCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: AppDispa
 export const fetchCities = (cityIds: PropType<TCity, 'id'>[]): (dispatch: AppDispatch) => Promise<PayloadAction<CityState>> => {
     return async (dispatch: AppDispatch) => {
         try {
-            const response: AxiosResponse<TCityResponse> = await axiosInstance.post('http://fabrikahimchistki-nk.ru:7007/cities', { cityIds });
+            const response: AxiosResponse<TCityResponse> = await axiosInstance.post('/cities', { cityIds });
             if (response.statusText === 'OK') {
                 return dispatch(cityActions.loadCities({ data: response.data, error: null, moduleState: ModuleState.success }));
             } else {

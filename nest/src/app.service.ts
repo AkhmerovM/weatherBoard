@@ -42,7 +42,7 @@ export class AppService implements OnApplicationBootstrap {
 		const apiKey = this.config.get('WEATHER_API_KEY');
 		const allIds = cities.map((city) => city.id);
 		const promises = allIds.map(async (cityId) => {
-			const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&id=${cityId}&appid=${apiKey}`;
+			const url = `http://api.openweathermap.org/data/2.5/weather?units=metric&id=${cityId}&appid=${apiKey}`;
 			const observable = await this.httpService.get(url);
 
 			observable.subscribe((axiosResponse) => {
