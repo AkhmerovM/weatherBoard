@@ -1,6 +1,8 @@
 services:
   nest:
-    build: .
+    platform: linux/x86_64
+    image: ghcr.io/akhmerovm/weatherboard/weather-board:deploy
+    container_name: weather-board-docker
     ports:
       - 3000:3000
     environment:

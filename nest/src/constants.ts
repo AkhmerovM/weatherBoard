@@ -32,3 +32,5 @@ export const DEFAULT_DRAWER_CITIES: {
         id: 1489425
     }
 };
+
+export const POLL_WEATHER_TIME_UPLOAD = 120000;

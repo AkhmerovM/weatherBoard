@@ -3,7 +3,7 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 import { TCity, TCityResponse } from './types';
 import { HttpService } from '@nestjs/axios';
-import { cities } from './constants';
+import { cities, POLL_WEATHER_TIME_UPLOAD } from './constants';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class AppService implements OnApplicationBootstrap {
 	onApplicationBootstrap(): void {
 		setInterval(() => {
 			this.loadCities();
-		}, 60000);
+		}, POLL_WEATHER_TIME_UPLOAD);
 	}
 	async getCities(cityIds: number[]): Promise<TCityResponse> {
 		const cities: TCity[] = [];
